@@ -1,1 +1,18 @@
+body {
+    margin: 0px;
+}
 
+footer {
+    background-color: cadetblue;
+    margin-top: 10px;
+    height: 50px;
+    text-align: center;
+}
+
+.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;/* vertical alignment */
+    margin-left: 20px;
+    margin-right: 20px;
+}

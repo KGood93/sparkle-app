@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {Route, Link} from 'react-router-dom'
-import Journal from './Journal/Journal'
-import Entry from './Entry/Entry'
+import Journal from './Components/Journal/Journal'
+import Entry from './Components/Entry/Entry'
+import Header from './Components/Header/Header'
 import './App.css'
 
 class App extends Component {
@@ -26,8 +27,7 @@ class App extends Component {
     return (
     <div className="App">
       <header role="banner" className="mainHeader">
-        <h1>MotiveKate</h1>
-        <a href="login.html" className="log">Logout</a>
+        <Header />
       </header>
 
       <Entry />

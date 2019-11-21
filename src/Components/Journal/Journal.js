@@ -1,11 +1,15 @@
 import React from 'react';
+//import AddButton from '../AddButton/AddButton.js'
 import './Journal.css';
 
 class Journal extends React.Component {
 
     render() {
         return (
-          <div className="main">
+          <div className="main"> 
+          <div class="entryButton">
+            <button type="button" class="addEntry">Add Entry</button>
+          </div>
             <section className="entries">
                 <div className="entryOdd">
                     <h3 className="entryName">Entry Title 1</h3>

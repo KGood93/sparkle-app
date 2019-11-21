@@ -28,7 +28,6 @@ export default class Header extends Component {
           to='/register'>
           Register
         </Link>
-        <Hyph />
         <Link
           to='/login'>
           Log in
@@ -41,14 +40,9 @@ export default class Header extends Component {
     return (
       <nav className='Header'>
         <h1>
-          <Link to='/'>
             {' '}
             Sparkle
-          </Link>
         </h1>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
       </nav>
     )
   }

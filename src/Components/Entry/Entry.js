@@ -6,6 +6,9 @@ class Entry extends Component {
     render() {
         return (
           <div className="main">
+            <nav role="navigation">
+              <a href="landing.html" class="homeNav">Home</a>
+            </nav>
             <div className="entryMain">
               <section className="motivQuote">
                 <h2>Motivation Quote Prompt</h2>

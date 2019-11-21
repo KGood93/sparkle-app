@@ -6,34 +6,18 @@ import Header from './Components/Header/Header'
 import './App.css'
 
 class App extends Component {
-  renderNavRoutes() {
-    return (
-      <>
-        {['/'].map(path => (
-          <Route 
-              exact
-              key={path}
-              path={path}
-              Component={Journal}
-          />
-        ))}
-        <Route path="/journal" component={Journal} />
-        <Route path="/entry" component={Entry}/>
-      </>
-    );
-  }
   
   render() {
     return (
     <div className="App">
-      <header role="banner" className="mainHeader">
+      <header className="mainHeader">
         <Header />
       </header>
-
+      
       <Entry />
 
       <footer role="content-info">
-        <a href="index.html">Index</a>
+        <p>Important Info</p>
       </footer>
     </div>
     );

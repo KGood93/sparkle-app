@@ -8,24 +8,34 @@ import Registration from './Components/Registration/Registration'
 import './App.css'
 
 class App extends Component {
-  
+  renderNavRoutes() {
+    return (
+      <>
+        {['/', '/journal'].map(path => (
+          <Route 
+            exact
+            key={path}
+            path={path}
+            component={Journal}
+          />
+        ))}
+        <Route path='/login' component={Login}/>
+      </>
+    );
+  }
   render() {
     return (
-      <ApiContext.Provider>
         <div className="App">
           <header className="mainHeader">
             <Header />
           </header>
-      
-      
-          <Entry />
+          <nav className="AppNav">{this.renderNavRoutes()}</nav>
 
-
-          <footer role="content-info">
+          <footer>
             <p>Important Info</p>
           </footer>
         </div>
-      </ApiContext.Provider>
+
     );
   }
 

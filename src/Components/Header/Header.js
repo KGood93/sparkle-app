@@ -43,6 +43,7 @@ export default class Header extends Component {
             {' '}
             Sparkle
         </h1>
+        <Link to="/login">Login</Link>
       </nav>
     )
   }

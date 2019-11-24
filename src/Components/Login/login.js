@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './Login.css';
 
 
@@ -21,7 +22,10 @@ class Login extends React.Component {
                 <input type="submit" value="submit" />
               </div>
             </form>
-        </section>
+            </section>
+            <section className="newUser">
+              <Link to='/registration'>New User</Link>
+            </section>
           </div>
         )
     }

@@ -1,15 +1,15 @@
-.loginMain {
+.register {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.loginForm {
+.registrationForm {
     border: 3px solid black;
     width: 250px;
-    height: 250px;
+    height: 300px;
     margin-top: 50px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
 .loginInfo {
@@ -33,8 +33,3 @@
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
-.newUser {
-    display: flex;
-    justify-content: center;
-} 

@@ -1,0 +1,16 @@
+.motivQuote {
+    border: 3px solid black;
+    margin: 15px;
+    margin-bottom: 0px;
+    width: 350px;
+}
+
+.motivQuote h2 {
+    margin: 5px;
+    text-align: center;
+}
+
+.motivQuote h4 {
+    margin: 5px;
+    text-align: center;
+}

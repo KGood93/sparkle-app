@@ -8,38 +8,3 @@
     flex-direction: column;
     align-items: center;
 }
-
-.motivQuote {
-    border: 3px solid black;
-    margin: 15px;
-    margin-bottom: 0px;
-    width: 350px;
-}
-
-.motivQuote h2 {
-    margin: 5px;
-    text-align: center;
-}
-
-.motivQuote h4 {
-    margin: 5px;
-    text-align: center;
-}
-
-textarea {
-    height: 250px;
-    width: 350px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.entryButtons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 100px;
-}
-
-.buttons {
-    align-content: flex-end;
-}

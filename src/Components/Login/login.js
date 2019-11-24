@@ -22,10 +22,9 @@ class Login extends React.Component {
                 <input type="submit" value="submit" />
               </div>
             </form>
+            <Link to='/registration'>New User</Link>
             </section>
-            <section className="newUser">
-              <Link to='/registration'>New User</Link>
-            </section>
+
           </div>
         )
     }

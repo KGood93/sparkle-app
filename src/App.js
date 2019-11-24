@@ -19,7 +19,8 @@ class App extends Component {
             component={Journal}
           />
         ))}
-        <Route path='/login' component={Login}/>
+        <Route path='/login' component={Login} />
+        <Route path='/registration' component={Registration} />
       </>
     );
   }

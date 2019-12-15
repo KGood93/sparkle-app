@@ -1,6 +1,6 @@
 import React from 'react'
 //import './AddButton.css'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 function AddButton(props) {
   const { tag, className, children, ...otherProps } = props

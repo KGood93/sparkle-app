@@ -6,6 +6,7 @@ import Header from './Components/Header/Header'
 import Login from './Components/Login/Login'
 import Registration from './Components/Registration/Registration'
 import './App.css'
+import AddEntry from './Components/AddEntry/AddEntry'
 
 class App extends Component {
   renderNavRoutes() {
@@ -21,6 +22,7 @@ class App extends Component {
         ))}
         <Route path='/login' component={Login} />
         <Route path='/registration' component={Registration} />
+        <Route path='/addEntry' component={AddEntry} />
       </>
     );
   }

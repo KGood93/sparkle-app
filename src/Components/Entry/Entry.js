@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import ApiContext from '.../ApiContext'
-import config from '.../config'
+import ApiContext from '../../ApiContext'
+import config from '../../config'
 import './Entry.css';
 
 
@@ -43,14 +43,14 @@ class Entry extends Component {
       </h2>
       <button className='Note_delete' type='button' onClick={this.handleClickDelete}>
         {' '}
-        Remove
+        Delete
       </button>
       <div className='Note_dates'>
         <div className='Note_dates-modified'>
-          Modified
+          Modified Date
           {' '}
           <span className='Date'>
-            {format(modified, 'Do MMM YYYY')}
+            
           </span>
         </div>
       </div>

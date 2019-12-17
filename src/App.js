@@ -9,6 +9,12 @@ import './App.css'
 import AddEntry from './Components/AddEntry/AddEntry'
 
 class App extends Component {
+  static defaultProps = {
+    store: {
+      allEntires: {}
+    }
+  };
+
   renderNavRoutes() {
     return (
       <>

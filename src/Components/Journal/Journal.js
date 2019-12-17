@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import AddButton from '../AddButton/AddButton.js'
 import Entry from '../Entry/Entry'
 import './Journal.css';
+import JournalEntry from '../JournalEntry/JournalEntry'
 
 
 class Journal extends React.Component {
@@ -10,7 +11,7 @@ class Journal extends React.Component {
     render() {
         return (
           <div className="main"> 
-          <div class="entryButton">
+          <div className="entryButton">
             <AddButton tag={Link} 
                 to='/addEntry'
                 type='button'
@@ -20,7 +21,7 @@ class Journal extends React.Component {
             </AddButton>
           </div>
             <section className="entries">
-                <Entry />
+                <JournalEntry />
             </section>
           </div>
         )

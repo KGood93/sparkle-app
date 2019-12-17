@@ -1,3 +1,5 @@
+//JSON
+
 export function allEntries() {
     return {entries: [
       { id: '1', title: 'First card', content: 'lorem ipsum' },

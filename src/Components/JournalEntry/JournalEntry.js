@@ -5,6 +5,13 @@ import './JournalEntry.css'
 const entries = allEntries().entries
 //console.log(entries)
 
+handleClickDelete = e => {
+    e.preventDefault()
+    const entryId = this.props.id
+
+    console.log('remove clicked')
+}
+
 class JournalEntry extends Component {
     render () {
         return (
@@ -13,6 +20,10 @@ class JournalEntry extends Component {
                     <div className="journalEntry">
                         <h1>{entryDetail.title}</h1>
                         <p>Date Here</p>
+                        <button className='journalEntry_delete' type='button' onClick={this.handleClickDelete}>
+                            {' '}
+                            Remove
+                        </button>
                     </div>
                 )
             })

@@ -5,14 +5,14 @@ import './JournalEntry.css'
 const entries = allEntries().entries
 //console.log(entries)
 
-handleClickDelete = e => {
-    e.preventDefault()
-    const entryId = this.props.id
-
-    console.log('remove clicked')
-}
-
 class JournalEntry extends Component {
+    handleClickDelete = e => {
+        e.preventDefault()
+        const entryId = this.props.id
+    
+        console.log('remove clicked')
+    }
+    
     render () {
         return (
             entries.map((entryDetail, index) => {

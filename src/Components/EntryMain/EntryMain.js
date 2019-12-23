@@ -5,11 +5,10 @@ import './EntryMain.css';
 
 class EntryMain extends Component {
   
-  render() {
-    const {entries}
+  render() { 
     return (
-      <div className='entry'>
-        <Note
+      <div className='EntryPageMain'>
+        <Entry
           id={note.id}
           name={note.name}
           modified={note.modified}

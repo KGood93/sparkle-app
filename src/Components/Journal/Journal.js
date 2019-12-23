@@ -4,6 +4,7 @@ import AddButton from '../AddButton/AddButton.js'
 import Entry from '../Entry/Entry'
 import './Journal.css';
 import JournalEntry from '../JournalEntry/JournalEntry'
+//import EntryMain from '../EntryMain/EntryMain'
 
 
 class Journal extends React.Component {

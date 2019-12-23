@@ -30,47 +30,47 @@ class AddEntry extends React.Component {
     //    this.setState({name: {value: noteName, touched: true}});
     //}
 
-    updateContent(entryContent) {
-        this.setState({content: {value: entryContent, touched: true}});
-    }
+    //updateContent(entryContent) {
+    //    this.setState({content: {value: entryContent, touched: true}});
+    //}
 
     //updateFolder(folderSelect) {
     //    this.setState({folderId: {value: folderSelect, touched: true}});
     //}
     
-    handleSubmit = event => {
-        event.preventDefault();
-        const { content } = this.state;
+    //handleSubmit = event => {
+    //    event.preventDefault();
+    //    const { content } = this.state;
 
         //console.log("Name:", name.value);
-        console.log("Content:", content.value);
+        //console.log("Content:", content.value);
         //console.log("FolderId:", folderId.value);
 
-        const entry = {
-            content: content.value,
-            modified: new Date()
-        }
-        console.log('Entry: ', entry);
+        //const entry = {
+        //    content: content.value,
+        //    modified: new Date()
+        //}
+        //console.log('Entry: ', entry);
 
-        fetch(`${config.API_ENDPOINT}/entry`, {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify(entry)
-           })
-           .then(res => {
-               if (!res.ok) {
-                   return res.json().then(event => Promise.reject(event))
-               }
-               return res.json()
-           })
-           .then(entry => {
-               this.context.addNote(entry)
-               this.props.history.push(`/entry/${entry.entryId}`)
-           })
-           .catch(error => {
-               console.error({ error })
-           })
-    }
+        //fetch(`${config.API_ENDPOINT}/entry`, {
+        //    method: 'POST',
+        //    headers: {'Content-Type':'application/json'},
+        //    body: JSON.stringify(entry)
+        //   })
+        //   .then(res => {
+        //       if (!res.ok) {
+        //           return res.json().then(event => Promise.reject(event))
+        //       }
+        //       return res.json()
+        //   })
+        //   .then(entry => {
+        //       this.context.addNote(entry)
+        //       this.props.history.push(`/entry/${entry.entryId}`)
+        //   })
+        //   .catch(error => {
+        //       console.error({ error })
+        //   })
+    //}
 
     //Validate Name is not left blank
     //validateName() {

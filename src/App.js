@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Route, Link} from 'react-router-dom'
 import Journal from './Components/Journal/Journal'
-import Entry from './Components/Entry/Entry'
+//import Entry from './Components/Entry/Entry'
 import Header from './Components/Header/Header'
 import Login from './Components/Login/Login'
 import Registration from './Components/Registration/Registration'

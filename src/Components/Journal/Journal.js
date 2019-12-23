@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import AddButton from '../AddButton/AddButton.js'
-import Entry from '../Entry/Entry'
+//import Entry from '../Entry/Entry'
 import './Journal.css';
 import JournalEntry from '../JournalEntry/JournalEntry'
 //import EntryMain from '../EntryMain/EntryMain'

@@ -10,7 +10,7 @@ class JournalEntry extends Component {
         e.preventDefault()
         const entryId = this.props.id
     
-        console.log('remove clicked')
+        console.log(`remove `)
     }
     
     render () {

@@ -1,6 +1,7 @@
 //fetches and displays an already existing entry//
 
 import React from 'react'
+import {format} from 'date-fns'
 import './Entry.css'
 
 class Entry extends React.Component {
@@ -26,7 +27,7 @@ class Entry extends React.Component {
                     Modified
                     {' '}
                     <span className='dateFormat'>
-                        {FormData(modified, 'Do MMM YYYY')}
+                        {format(modified, 'Do MMM YYYY')}
                     </span>
                 </div>
             </div>

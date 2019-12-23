@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import {allEntries} from '../../STORE'
 import './JournalEntry.css'
 
@@ -18,7 +19,11 @@ class JournalEntry extends Component {
             entries.map((entryDetail, index) => {
                 return (
                     <div className="journalEntry">
-                        <h1>{entryDetail.title}</h1>
+                        <h1>
+                            <Link to='/entry'>
+                                {entryDetail.title}
+                            </Link>
+                        </h1>
                         <p>Date Here</p>
                         <button className='journalEntry_delete' type='button' onClick={this.handleClickDelete}>
                             {' '}

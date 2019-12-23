@@ -20,7 +20,7 @@ class JournalEntry extends Component {
                 return (
                     <div className="journalEntry">
                         <h1>
-                            <Link to='/entry'>
+                            <Link to={`/entry/${entryDetail.id}`}>
                                 {entryDetail.title}
                             </Link>
                         </h1>

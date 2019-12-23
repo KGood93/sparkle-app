@@ -15,21 +15,13 @@ class Entry extends React.Component {
         return (
             <div className='entry'>
                 <h2 className='entryTitle'>
-                    /*Link*/
                     {title}
-                    /*Link*/
                 </h2>
                 <button className='deleteEntry' type='button' onClick={this.handleClickDelete}>
                     {' '}
                     Remove
                 </button>
-                <div className='dates'>
-                    Modified
-                    {' '}
-                    <span className='dateFormat'>
-                        {format(modified, 'Do MMM YYYY')}
-                    </span>
-                </div>
+
             </div>
         )
     }

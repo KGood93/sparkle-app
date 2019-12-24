@@ -5,8 +5,6 @@ import {format} from 'date-fns'
 import './Entry.css'
 import { allEntries } from '../../STORE'
 
-const entry = allEntries().entries
-
 class Entry extends React.Component {
 
     handleClickDelete = e => {
@@ -14,7 +12,7 @@ class Entry extends React.Component {
     }
     
     render() {
-        const {title, id, modified} = this.props
+        const {title, id} = this.props
         return (
             <div className='entry'>
                 <h2 className='entryTitle'>

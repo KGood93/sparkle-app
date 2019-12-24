@@ -3,6 +3,9 @@
 import React from 'react'
 import {format} from 'date-fns'
 import './Entry.css'
+import { allEntries } from '../../STORE'
+
+const entry = allEntries().entries
 
 class Entry extends React.Component {
 

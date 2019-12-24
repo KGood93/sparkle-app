@@ -7,6 +7,7 @@ import Login from './Components/Login/Login'
 import Registration from './Components/Registration/Registration'
 import './App.css'
 import AddEntry from './Components/AddEntry/AddEntry'
+import EntryMain from './Components/EntryMain/EntryMain'
 
 class App extends Component {
   static defaultProps = {
@@ -29,7 +30,7 @@ class App extends Component {
         <Route path='/login' component={Login} />
         <Route path='/registration' component={Registration} />
         <Route path='/addEntry' component={AddEntry} />
-        <Route path='/entry' component={Entry}/>
+        <Route path='/entry' component={EntryMain}/>
       </>
     );
   }

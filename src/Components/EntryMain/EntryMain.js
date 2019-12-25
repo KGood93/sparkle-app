@@ -10,21 +10,13 @@ class EntryMain extends Component {
   
   render() { 
     return (
-      entries.map((entry, index) => {
-        return (
           <div className='EntryPageMain'>
           <Entry
-            id={entry.id}
-            name={entry.title}
+            id={entries.id}
+            title={entries.title}
+            content={entries.content}
           />
-          <div className='EntryMain'>
-            {entry.content.split(/\n \r|\n/).map((para, i) =>
-              <p key={i}>{para}</p>
-            )}
-          </div>
         </div>
-        )
-      })
 
     )
   }

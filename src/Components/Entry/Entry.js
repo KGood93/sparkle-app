@@ -12,12 +12,15 @@ class Entry extends React.Component {
     }
     
     render() {
-        const {title, id} = this.props
+        console.log(this.props.title) 
         return (
             <div className='entry'>
                 <h2 className='entryTitle'>
-                    {title}
+                    {this.props.title}
                 </h2>
+                <p>
+                    {this.props.content}
+                </p>
                 <button className='deleteEntry' type='button' onClick={this.handleClickDelete}>
                     {' '}
                     Remove

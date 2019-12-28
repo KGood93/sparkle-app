@@ -21,7 +21,7 @@ class Entry extends React.Component {
                 <p>
                     {this.props.content}
                 </p>
-                <button className='deleteEntry' type='button' onClick={this.handleClickDelete}>
+                <button className='deleteEntry' type='button'>
                     {' '}
                     Remove
                 </button>

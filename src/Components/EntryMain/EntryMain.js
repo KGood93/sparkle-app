@@ -9,6 +9,8 @@ import {findEntry} from '../../entry-helpers'
 //const entries = allEntries().entries[1]
 //console.log(entries)
 
+//need to set context
+
 class EntryMain extends Component {
   static contextType = ApiContext
   

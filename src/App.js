@@ -30,7 +30,7 @@ class App extends Component {
         <Route path='/login' component={Login} />
         <Route path='/registration' component={Registration} />
         <Route path='/addEntry' component={AddEntry} />
-        <Route path='/entry' component={EntryMain}/>
+        <Route path='/entry/:entryId' component={EntryMain}/>
       </>
     );
   }

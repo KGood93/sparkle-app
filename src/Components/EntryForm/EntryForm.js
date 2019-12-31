@@ -1,24 +1,16 @@
 import React, {Component} from 'react';
 import './EntryForm.css';
+import PropTypes from 'prop-types';
 
-class EntryForm extends Component {
-
-    render() {
-        return (
-          <div className="main">
-            <section>
-                <textarea></textarea>
-            </section>
-      
-            <div className="entryButtons">
-              <section className="buttons">
-                  <button type="button" className="clear">Clear Entry</button>
-                  <button type="button" className="edit">Edit Entry</button>
-                  <button type="button" className="save">Save Entry</button>
-              </section>
-            </div>
-          </div>
-        )
-    }
+function EntryForm(props) {
+  const { className, ...otherProps } = props
+  return (
+    <form
+      className={['entry-form', className].join(' ')}
+      action='#'
+      {...otherProps}
+    />
+  )
 }
+
 export default EntryForm;

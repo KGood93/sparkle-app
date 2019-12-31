@@ -4,6 +4,7 @@ import React from 'react'
 import {format} from 'date-fns'
 import './Entry.css'
 import { allEntries } from '../../STORE'
+import Quote from '../Quote/Quote'
 
 class Entry extends React.Component {
 
@@ -18,6 +19,7 @@ class Entry extends React.Component {
                 <h2 className='entryTitle'>
                     {this.props.title}
                 </h2>
+                <Quote />
                 <p>
                     {this.props.content}
                 </p>

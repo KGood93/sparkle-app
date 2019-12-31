@@ -26,31 +26,26 @@ class AddEntry extends React.Component {
         }
     }
 
-    //updateName(noteName) {
-    //    this.setState({name: {value: noteName, touched: true}});
-    //}
+    updateName(noteName) {
+        this.setState({name: {value: noteName, touched: true}});
+    }
 
-    //updateContent(entryContent) {
-    //    this.setState({content: {value: entryContent, touched: true}});
-    //}
-
-    //updateFolder(folderSelect) {
-    //    this.setState({folderId: {value: folderSelect, touched: true}});
-    //}
+    updateContent(entryContent) {
+        this.setState({content: {value: entryContent, touched: true}});
+    }
     
-    //handleSubmit = event => {
-    //    event.preventDefault();
-    //    const { content } = this.state;
+    handleSubmit = event => {
+        event.preventDefault();
+        const { content } = this.state;
 
         //console.log("Name:", name.value);
-        //console.log("Content:", content.value);
-        //console.log("FolderId:", folderId.value);
+        console.log("Content:", content.value);
 
-        //const entry = {
-        //    content: content.value,
-        //    modified: new Date()
-        //}
-        //console.log('Entry: ', entry);
+        const entry = {
+            content: content.value,
+            modified: new Date()
+        }
+        console.log('Entry: ', entry);
 
         //fetch(`${config.API_ENDPOINT}/entry`, {
         //    method: 'POST',
@@ -70,7 +65,7 @@ class AddEntry extends React.Component {
         //   .catch(error => {
         //       console.error({ error })
         //   })
-    //}
+    }
 
     //Validate Name is not left blank
     //validateName() {
@@ -79,29 +74,48 @@ class AddEntry extends React.Component {
     //        return "Name is Required"
     //    }
     //}
-    
-    //Validate Folder Selected
-    //validateFolder() {
-    //    const folder = this.state.folderId.value.trim();
-    //    if (folder.value === 'null') {
-    //        return "Please Select Folder"
-    //    }
-    //}
-    
+
     render() {
         //const { folders=[] } = this.context;
         //const nameError = this.validateName();
-        //const folderError = this.validateFolder();
+        
 
         return (
             <section className='AddEntry'>
             <h2>Add Entry</h2>
             <Link to='/journal'>Home</Link>
-            <Quote />
-            <EntryForm />
+            <EntryForm className='EntryAddition' onSubmit={this.handleSubmit}>
+                <div className="Entry-name">
+                    <label htmlFor="EntryName">Name</label>
+                    <input 
+                        type="text"
+                        className="Entry_control"
+                        name="entryName"
+                        id="entryName"
+                        onChange={e => this.updateName(e.target.value)}
+                        />
+                </div>
+                <Quote />
+                <div className="entry-content">
+                    <textarea 
+                        name="entryContent"
+                        id="entryContent"
+                        onChange={e => this.updateContent(e.target.value)}
+                        >
+                    </textarea>
+                </div>
+                <div className="addition_button">
+                    <button 
+                        type="submit"
+                        >
+                        Add Entry
+                    </button>
+                </div>
+            </EntryForm>
             </section>
         )
     }
 }
+
 
 export default AddEntry

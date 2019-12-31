@@ -79,7 +79,6 @@ class AddEntry extends React.Component {
         //const { folders=[] } = this.context;
         //const nameError = this.validateName();
         
-
         return (
             <section className='AddEntry'>
             <h2>Add Entry</h2>

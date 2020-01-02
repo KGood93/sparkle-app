@@ -1,4 +1,8 @@
-.entry {
+h2 {
+    margin-left: 20px;
+}
+
+.AddEntry {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +37,7 @@
     margin-top: 10px;
 }
 
-.deleteEntry {
+.add {
     display: block;
     margin: auto;
 }

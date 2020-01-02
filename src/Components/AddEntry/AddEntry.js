@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-//import './AddEntry.css'
+import './AddEntry.css'
 import EntryForm from '../EntryForm/EntryForm'
 import Quote from '../Quote/Quote'
 import ApiContext from '../../ApiContext'
@@ -76,26 +76,27 @@ class AddEntry extends React.Component {
     //}
 
     render() {
-        //const { folders=[] } = this.context;
         //const nameError = this.validateName();
         
         return (
             <section className='AddEntry'>
             <h2>Add Entry</h2>
-            <Link to='/journal'>Home</Link>
+            <div className="home">
+                <Link to='/journal'>Home</Link>
+            </div>
             <EntryForm className='EntryAddition' onSubmit={this.handleSubmit}>
-                <div className="Entry-name">
-                    <label htmlFor="EntryName">Name</label>
+                <div className="name">
+                    <label htmlFor="EntryName" className="nameLabel">Name:</label>
                     <input 
                         type="text"
-                        className="Entry_control"
+                        className="nameInput"
                         name="entryName"
                         id="entryName"
                         onChange={e => this.updateName(e.target.value)}
                         />
                 </div>
                 <Quote />
-                <div className="entry-content">
+                <div className="entryContent">
                     <textarea 
                         name="entryContent"
                         id="entryContent"
@@ -104,9 +105,7 @@ class AddEntry extends React.Component {
                     </textarea>
                 </div>
                 <div className="addition_button">
-                    <button 
-                        type="submit"
-                        >
+                    <button type="submit" className="add">
                         Add Entry
                     </button>
                 </div>

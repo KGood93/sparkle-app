@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "alias": "goodreaukaty-sparkle-app",
+    "alias": "goodreaukath-sparkle-app",
     "name": "sparkle-app",
     "routes": [
         { "handle": "filesystem" },

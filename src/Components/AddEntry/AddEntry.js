@@ -4,7 +4,7 @@ import './AddEntry.css'
 import EntryForm from '../EntryForm/EntryForm'
 import Quote from '../Quote/Quote'
 import ApiContext from '../../ApiContext'
-import config from '../../config'
+//import config from '../../config'
 //import ValidationError from '../ValidationError/validationError'
 
 class AddEntry extends React.Component {

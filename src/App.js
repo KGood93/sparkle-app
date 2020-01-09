@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
-import {Route, Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import Journal from './Components/Journal/Journal'
-import Entry from './Components/Entry/Entry'
 import Header from './Components/Header/Header'
 import Login from './Components/Login/Login'
 import Registration from './Components/Registration/Registration'
 import './App.css'
 import AddEntry from './Components/AddEntry/AddEntry'
 import EntryMain from './Components/EntryMain/EntryMain'
+import config from './config'
 
 class App extends Component {
   static defaultProps = {
@@ -15,6 +15,35 @@ class App extends Component {
       allEntires: {}
     }
   };
+
+  componentDidMount() {
+    const entryUrl = `${config.API_ENDPOINT}/entry`
+    const entryOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    fetch(entryUrl, entryOptions)
+      .then(res => {
+        if(res.ok) {
+          console.log(res.json())
+          return res.json()
+        }
+        else {
+          throw new Error('Unable to fetch entries')
+        }
+      })
+      .then(data => {
+        this.setState({entry: data})
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message
+        })
+      })
+  }
 
   renderNavRoutes() {
     return (

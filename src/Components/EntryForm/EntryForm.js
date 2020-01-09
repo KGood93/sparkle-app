@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './EntryForm.css';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 function EntryForm(props) {
   const { className, ...otherProps } = props

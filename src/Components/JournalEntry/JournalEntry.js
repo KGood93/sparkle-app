@@ -9,7 +9,7 @@ const entries = allEntries().entries
 class JournalEntry extends Component {
     handleClickDelete = e => {
         e.preventDefault()
-        const entryId = this.props.id
+        //const entryId = this.props.id
     
         console.log(`remove `)
     }

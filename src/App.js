@@ -8,15 +8,51 @@ import './App.css'
 import AddEntry from './Components/AddEntry/AddEntry'
 import EntryMain from './Components/EntryMain/EntryMain'
 import config from './config'
+import ApiContext from './ApiContext'
 
 class App extends Component {
-  static defaultProps = {
-    store: {
-      allEntires: {}
-    }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      journal: [],
+      entry: []
+    };
+  }
 
   componentDidMount() {
+    this.fetchEntry();
+    const journalUrl = `${config.API_ENDPOINT}/journal/100`;
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch(journalUrl, options)
+      .then(res => {
+        if(res.ok) {
+          return res.json()
+        }
+        else {
+          throw new Error('Something went wrong loading journal')
+        }
+      })
+      .then(data => {
+        this.setState({journal: data})
+        console.log(data)
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message
+        })
+      })
+    
+  }
+
+
+
+  fetchEntry() {
     const entryUrl = `${config.API_ENDPOINT}/entry`
     const entryOptions = {
       method: 'GET',
@@ -28,15 +64,15 @@ class App extends Component {
     fetch(entryUrl, entryOptions)
       .then(res => {
         if(res.ok) {
-          console.log(res.json())
           return res.json()
         }
-        else {
-          throw new Error('Unable to fetch entries')
+        else{
+          throw new Error('Something went wrong loading entries')
         }
       })
       .then(data => {
         this.setState({entry: data})
+        console.log(data)
       })
       .catch(err => {
         this.setState({
@@ -64,7 +100,12 @@ class App extends Component {
     );
   }
   render() {
+    const value = {
+      entry: this.state.entry
+    }
+
     return (
+      <ApiContext.Provider value={value}>
         <div className="App">
           <header className="mainHeader">
             <Header />
@@ -75,6 +116,7 @@ class App extends Component {
             <p>Important Info</p>
           </footer>
         </div>
+      </ApiContext.Provider>
 
     );
   }

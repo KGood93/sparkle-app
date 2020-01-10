@@ -40,7 +40,7 @@ class App extends Component {
       })
       .then(data => {
         this.setState({journal: data})
-        console.log(data)
+        //console.log(data)
       })
       .catch(err => {
         this.setState({
@@ -72,7 +72,7 @@ class App extends Component {
       })
       .then(data => {
         this.setState({entry: data})
-        console.log(data)
+        //console.log(data)
       })
       .catch(err => {
         this.setState({

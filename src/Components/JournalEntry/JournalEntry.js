@@ -1,12 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import {allEntries} from '../../STORE'
 import './JournalEntry.css'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
-
-//const entries = allEntries().entries
-//console.log(entries)
 
 class JournalEntry extends Component {
     static contextType = ApiContext

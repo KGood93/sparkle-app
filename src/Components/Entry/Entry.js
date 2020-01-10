@@ -14,7 +14,7 @@ class Entry extends React.Component {
     }
     
     render() {
-        console.log(this.props.title) 
+        //console.log(this.props.title) 
         return (
             <div className='entry'>
                 <div className="home">

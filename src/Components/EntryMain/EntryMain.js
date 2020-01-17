@@ -11,18 +11,19 @@ class EntryMain extends Component {
   
   render() {
     const {entry=[]} = this.context
-    console.log(entry)
+    //console.log(entry)
     const {entryId} = this.props.match.params
     const id = parseInt(entryId)
     const disEntry = findEntry(entry, id) || {title: '', content: '', quoteid: ''}
 
-    console.log(disEntry.quoteid)
+    //console.log(disEntry.quoteid)
 
     return (
         <div className='EntryPageMain'>
           <Entry
             title={disEntry.title}
             content={disEntry.content}
+            quoteid={disEntry.quoteid}
           />
 
         </div>

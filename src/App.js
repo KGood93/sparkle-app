@@ -15,12 +15,31 @@ class App extends Component {
     super(props);
     this.state = {
       journal: [],
-      entry: []
+      entry: [],
+      quotes: [],
+      newQuoteId: 1
     };
+  }
+
+  getNewQuoteId(entry) {
+    //console.log(entry)
+    //get length of array //get object of last positions in array
+    if (entry.length !== 0) {
+      const lastEntry = entry[entry.length - 1]
+      //console.log(lastEntry)
+      //console.log(lastEntry.quoteid)
+      const nextQuoteId = lastEntry.quoteid + 1
+      //this.setState({newQuoteId: nextQuoteId})
+      return nextQuoteId
+    }
+    else {
+      return 1
+    }
   }
 
   componentDidMount() {
     this.fetchEntry();
+    this.fetchQuote();
     const journalUrl = `${config.API_ENDPOINT}/journal/100`;
     const options = {
       method: 'GET',
@@ -50,8 +69,6 @@ class App extends Component {
     
   }
 
-
-
   fetchEntry() {
     const entryUrl = `${config.API_ENDPOINT}/entry`
     const entryOptions = {
@@ -65,6 +82,7 @@ class App extends Component {
       .then(res => {
         if(res.ok) {
           return res.json()
+          //logic to set nextQuoteId
         }
         else{
           throw new Error('Something went wrong loading entries')
@@ -72,6 +90,36 @@ class App extends Component {
       })
       .then(data => {
         this.setState({entry: data})
+        //console.log(data)
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message
+        })
+      })
+  }
+
+  fetchQuote() {
+    const quoteUrl = `${config.API_ENDPOINT}/quote`
+    //Still need to write server endpoint
+    const quoteOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    fetch(quoteUrl, quoteOptions)
+      .then(res => {
+        if(res.ok) {
+          return res.json()
+        }
+        else{
+          throw new Error('Something went wrong loading quotes')
+        }
+      })
+      .then(data => {
+        this.setState({quotes: data})
         //console.log(data)
       })
       .catch(err => {
@@ -101,8 +149,16 @@ class App extends Component {
   }
   render() {
     const value = {
-      entry: this.state.entry
+      entry: this.state.entry,
+      quotes: this.state.quotes,
+      //newQuoteId: this.state.newQuoteId
     }
+
+    //console.log(value.newQuoteId)
+    //const nextQuoteId = this.getNewQuoteId(value.entry)
+    //console.log(nextQuoteId)
+    //value.newQuoteId = nextQuoteId
+    //console.log(value.newQuoteId)
 
     return (
       <ApiContext.Provider value={value}>

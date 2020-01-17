@@ -30,7 +30,9 @@ class Entry extends React.Component {
                         value={this.props.title}
                     />
                 </div>
-                <Quote />
+                <Quote 
+                    quoteid={this.props.quoteid}
+                />
                 <div className="entryContent">
                     <textarea 
                         name="entryContent"

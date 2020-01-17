@@ -5,11 +5,16 @@ import AddButton from '../AddButton/AddButton.js'
 import './Journal.css';
 import JournalEntry from '../JournalEntry/JournalEntry'
 //import EntryMain from '../EntryMain/EntryMain'
+import ApiContext from '../../ApiContext'
 
 
 class Journal extends React.Component {
+  static contextType = ApiContext;
+
+
 
     render() {
+
         return (
           <div className="main"> 
           <div className="entryButton">

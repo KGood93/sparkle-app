@@ -26,6 +26,23 @@ class AddEntry extends React.Component {
         }
     }
 
+    getNewQuoteId() {
+        const {entry=[]} = this.context
+        //console.log(entry)
+        //get length of array //get object of last positions in array
+        if (entry.length !== 0) {
+          const lastEntry = entry[entry.length - 1]
+          console.log(lastEntry)
+          //console.log(lastEntry.quoteid)
+          const nextQuoteId = lastEntry.quoteid + 1
+          //this.setState({newQuoteId: nextQuoteId})
+          return nextQuoteId
+        }
+        else {
+          return 1
+        }
+      }
+
     updateName(noteName) {
         this.setState({name: {value: noteName, touched: true}});
     }
@@ -77,6 +94,8 @@ class AddEntry extends React.Component {
 
     render() {
         //const nameError = this.validateName();
+
+        const quoteid = this.getNewQuoteId()
         
         return (
             <section className='AddEntry'>
@@ -95,7 +114,7 @@ class AddEntry extends React.Component {
                         onChange={e => this.updateName(e.target.value)}
                         />
                 </div>
-                <Quote />
+                <Quote quoteid={quoteid}/>
                 <div className="entryContent">
                     <textarea 
                         name="entryContent"
@@ -105,6 +124,7 @@ class AddEntry extends React.Component {
                     </textarea>
                 </div>
                 <div className="addition_button">
+                    {/*Increment for new quote here*/}
                     <button type="submit" className="add">
                         Add Entry
                     </button>

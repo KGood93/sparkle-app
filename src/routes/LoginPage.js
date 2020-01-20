@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Login from '../../components/Login/Login'
-import { Section } from '../../components/Utils/Utils'
+import Login from '../../Components/Login/Login'
+import { Section } from '../../Components/Utils/Utils'
 
 export default class Login extends Component {
   static defaultProps = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Section } from '../../components/Utils/Utils'
-import Registration from '../../components/Registration/Registration'
+import { Section } from '../../Components/Utils/Utils'
+import Registration from '../../Components/Registration/Registration'
 
 export default class Registration extends Component {
   static defaultProps = {

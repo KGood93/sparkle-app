@@ -17,24 +17,7 @@ class App extends Component {
       journal: [],
       entry: [],
       quotes: [],
-      newQuoteId: 1
     };
-  }
-
-  getNewQuoteId(entry) {
-    //console.log(entry)
-    //get length of array //get object of last positions in array
-    if (entry.length !== 0) {
-      const lastEntry = entry[entry.length - 1]
-      //console.log(lastEntry)
-      //console.log(lastEntry.quoteid)
-      const nextQuoteId = lastEntry.quoteid + 1
-      //this.setState({newQuoteId: nextQuoteId})
-      return nextQuoteId
-    }
-    else {
-      return 1
-    }
   }
 
   componentDidMount() {

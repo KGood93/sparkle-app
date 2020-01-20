@@ -1,62 +1,81 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import './Login.css';
+import React, { Component } from 'react'
+import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
+import { Button, Input } from '../Utils/Utils'
 
-
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: {
-        value: '',
-        touched: false
-      },
-    }
+export default class LoginForm extends Component {
+  static defaultProps = {
+    onLoginSuccess: () => {}
   }
 
-  updateUsername(userName) {
-    this.setState({username: {value: userName, touched: true}});
-    console.log(userName)
-}
+  state = { error: null }
 
-  updatePassword(password) {
-    this.setState({password: {value: password, touched: true}});
-    console.log(password)
-}
+  handleSubmitBasicAuth = ev => {
+    ev.preventDefault()
+    const { user_name, password } = ev.target
 
-  handleSubmit = event => {
-    event.preventDefault();
-    const { content } = this.state;
+  TokenService.saveAuthToken(
+    TokenService.makeBasicAuthToken(user_name.value, password.value)
+  )
 
-    const entry = {
-        content: content.value,
-        modified: new Date()
-    }
-    console.log('Entry: ', entry);
+    user_name.value = ''
+    password.value = ''
+    this.props.onLoginSuccess()
   }
 
-    render() {
-        return (
-          <div className="loginMain"> 
-            <section className="loginForm">
-            <form>
-              <div className="loginInfo">
-                <h3 className="inputLabel">Username</h3>
-                <input type="text" name="username" className="input" onChange={e => this.updateUsername(e.target.value)}/>
-              </div>  
-              <div className="loginInfo">  
-                <h3 className="inputLabel">Password</h3>
-                <input type="text" name="password" className="input" onChange={e => this.updatePassword(e.target.value)} /> <br/>
-              </div>  
-              <div className="loginButton">
-                <input type="submit" value="submit" />
-              </div>
-            </form>
-            <Link to='/registration'>New User</Link>
-            </section>
+  handleSubmitJwtAuth = ev => {
+    ev.preventDefault()
+    this.setState({error: null})
+    const {user_name, password} = ev.target
 
-          </div>
-        )
-    }
+    AuthApiService.postLogin({
+      user_name: user_name.value, 
+      password: password.value,
+    })
+      .then(res => {
+        user_name.value = ''
+        password.value = ''
+        TokenService.saveAuthToken(res.authToken)
+        this.props.onLoginSuccess()
+      })
+      .catch(res => {
+        this.setState({error: res.error})
+      })
+  }
+
+  render() {
+    const { error } = this.state
+    return (
+      <form
+        className='LoginForm'
+        onSubmit={this.handleSubmitJwtAuth}
+      >
+        <div role='alert'>
+          {error && <p className='red'>{error}</p>}
+        </div>
+        <div className='user_name'>
+          <label htmlFor='LoginForm__user_name'>
+            User name
+          </label>
+          <Input
+            name='user_name'
+            id='LoginForm__user_name'>
+          </Input>
+        </div>
+        <div className='password'>
+          <label htmlFor='LoginForm__password'>
+            Password
+          </label>
+          <Input
+            name='password'
+            type='password'
+            id='LoginForm__password'>
+          </Input>
+        </div>
+        <Button type='submit'>
+          Login
+        </Button>
+      </form>
+    )
+  }
 }
-export default Login;

@@ -4,7 +4,7 @@ import './AddEntry.css'
 import EntryForm from '../EntryForm/EntryForm'
 import Quote from '../Quote/Quote'
 import ApiContext from '../../ApiContext'
-//import config from '../../config'
+import config from '../../config'
 import ValidationError from '../ValidationError/validationError'
 
 class AddEntry extends React.Component {
@@ -21,6 +21,7 @@ class AddEntry extends React.Component {
                 value: '',
                 touched: false
             },
+            newQuoteId: 1
        }
     }
 
@@ -32,7 +33,7 @@ class AddEntry extends React.Component {
 
     getNewQuoteId() {
         const {entry=[]} = this.context
-        //console.log(entry)
+        console.log(entry)
         //get length of array //get object of last positions in array
         if (entry.length !== 0) {
           const lastEntry = entry[entry.length - 1]
@@ -47,6 +48,10 @@ class AddEntry extends React.Component {
         }
       }
 
+    updateQuoteId(quoteId) {
+        this.setState({newQuoteId: quoteId});
+    }
+
     updateTitle(entryTitle) {
         this.setState({title: {value: entryTitle, touched: true}});
     }
@@ -57,16 +62,22 @@ class AddEntry extends React.Component {
     
     handleSubmit = event => {
         event.preventDefault();
-        const { title, content } = this.state;
+        const { title, content, newQuoteId } = this.state;
+
+        //const newDate = new Date()
 
         console.log("Title:", title.value);
         console.log("Content:", content.value);
 
         const entry = {
+            //entryid: 110,
             title: title.value,
+            //date: newDate.toJSON(),
             content: content.value,
-            modified: new Date()
+            journalid: 100, 
+            quoteid: 7,
         }
+
         console.log('Entry: ', entry);
 
         fetch(`${config.API_ENDPOINT}/entry`, {
@@ -74,17 +85,17 @@ class AddEntry extends React.Component {
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(entry)
            })
-           .then(res => {
-               if (!res.ok) {
-                   return res.json().then(event => Promise.reject(event))
-               }
-               return res.json()
-           })
+    //       .then(res => {
+    //           if (!res.ok) {
+    //               return res.json().then(event => Promise.reject(event))
+    //           }
+    //           return res.json()
+    //       })
            .then(entry => {
-               this.context.addNote(entry)
+               //this.context.addEntry(entry)
                this.props.history.push(`/entry/${entry.entryId}`)
            })
-           .catch(error => {
+          .catch(error => {
                console.error({ error })
            })
     }
@@ -98,9 +109,9 @@ class AddEntry extends React.Component {
     }
 
     render() {
-        const titleError = this.validateName();
-
+        const titleError = this.validateTitle();
         const quoteid = this.getNewQuoteId()
+        //this.updateQuoteId(quoteid)
         
         return (
             <section className='AddEntry'>
@@ -110,15 +121,16 @@ class AddEntry extends React.Component {
             </div>
             <EntryForm className='EntryAddition' onSubmit={this.handleSubmit}>
                 <div className="name">
-                    <label htmlFor="EntryName" className="nameLabel">Name:</label>
+                    <label htmlFor="EntryName" className="nameLabel">Title:</label>
                     <input 
                         type="text"
-                        className="nameInput"
-                        name="entryName"
-                        id="entryName"
-                        onChange={e => this.updateName(e.target.value)}
-                        />
-                        {this.state.name.touched && <ValidationError message={titleError} />}
+                        className="titleInput"
+                        name="entryTitle"
+                        id="entryTitle"
+                        onChange={e => this.updateTitle(e.target.value)}
+                    />
+                    {this.state.title.touched && <ValidationError message={titleError} />}
+
                 </div>
                 <Quote quoteid={quoteid}/>
                 <div className="entryContent">
@@ -130,7 +142,9 @@ class AddEntry extends React.Component {
                     </textarea>
                 </div>
                 <div className="addition_button">
-                    <button type="submit" className="add">
+                    <button type="submit" 
+                    disabled = {this.validateTitle()}
+                    className="add">
                         Add Entry
                     </button>
                 </div>

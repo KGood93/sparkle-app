@@ -9,17 +9,19 @@ export default class RegistrationForm extends Component {
 
   state = { error: null }
 
+  //Need to format input...being sent to server in incorrect format
+
   handleSubmit = ev => {
     ev.preventDefault()
-    const { user_name, password } = ev.target
+    const { username, password } = ev.target
 
     this.setState({error: null})
     AuthApiService.postUser({
-      user_name: user_name.value,
+      username: username.value,
       password: password.value,
     })
     .then(user => {
-      user_name.value = ''
+      username.value = ''
       password.value = ''
       this.props.onRegistrationSuccess()
     })
@@ -39,12 +41,12 @@ export default class RegistrationForm extends Component {
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='user_name'>
+        <div className='username'>
           <label htmlFor='RegistrationForm__user_name'>
             User name <Required />
           </label>
           <Input
-            name='user_name'
+            name='username'
             type='text'
             required
             id='RegistrationForm__user_name'>

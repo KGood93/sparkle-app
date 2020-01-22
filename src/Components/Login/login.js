@@ -3,6 +3,7 @@ import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-services'
 import { Button, Input } from '../Utils/Utils'
 import {Link} from 'react-router-dom'
+import './Login.css'
 
 export default class LoginForm extends Component {
   static defaultProps = {
@@ -30,7 +31,7 @@ export default class LoginForm extends Component {
     const {username, password} = ev.target
 
     AuthApiService.postLogin({
-      user_name: username.value, 
+      username: username.value, 
       password: password.value,
     })
       .then(res => {
@@ -47,30 +48,31 @@ export default class LoginForm extends Component {
   render() {
     const { error } = this.state
     return (
+      <div className="loginMain">
+        <div className='loginForm'>
       <form
-        className='LoginForm'
         onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='user_name'>
-          <label htmlFor='LoginForm__user_name'>
-            User name
+        <div className='username'>
+          <label htmlFor='inputLabel'>
+            Username
           </label>
           <Input
             name='username'
-            id='LoginForm__user_name'>
+            className='input'>
           </Input>
         </div>
         <div className='password'>
-          <label htmlFor='LoginForm__password'>
+          <label htmlFor='inputLabel'>
             Password
           </label>
           <Input
             name='password'
             type='password'
-            id='LoginForm__password'>
+            className='input'>
           </Input>
         </div>
         <Button type='submit'>
@@ -79,6 +81,8 @@ export default class LoginForm extends Component {
         <br />
         <Link to='/registration'>New User?</Link>
       </form>
+      </div>
+      </div>
     )
   }
 }

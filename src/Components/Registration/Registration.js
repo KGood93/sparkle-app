@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Input, Required } from '../Utils/Utils'
 import AuthApiService from '../../services/auth-api-services'
+import './Registration.css'
 
 export default class RegistrationForm extends Component {
   static defaultProps = {
@@ -10,6 +11,8 @@ export default class RegistrationForm extends Component {
   state = { error: null }
 
   //Need to format input...being sent to server in incorrect format
+
+  //Add password comparison 
 
   handleSubmit = ev => {
     ev.preventDefault()
@@ -31,19 +34,26 @@ export default class RegistrationForm extends Component {
 
   }
 
+  passwordMatch(password, retype) {
+    if (password === retype) {
+      return password
+    }
+  }
+
   render() {
     const { error } = this.state
     return (
+      <div className="register">
+      <div className='registrationForm'>
       <form
-        className='RegistrationForm'
         onSubmit={this.handleSubmit}
       >
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
         <div className='username'>
-          <label htmlFor='RegistrationForm__user_name'>
-            User name <Required />
+          <label htmlFor='RegistrationForm_username' className="inputLable">
+            Username <Required />
           </label>
           <Input
             name='username'
@@ -53,7 +63,7 @@ export default class RegistrationForm extends Component {
           </Input>
         </div>
         <div className='password'>
-          <label htmlFor='RegistrationForm__password'>
+          <label htmlFor='RegistrationForm_password' className="inputLable">
             Password <Required />
           </label>
           <Input
@@ -63,10 +73,23 @@ export default class RegistrationForm extends Component {
             id='RegistrationForm__password'>
           </Input>
         </div>
+        <div className='retypePassword'>
+          <label htmlFor='RegistrationForm_password' className="inputLable">
+            Retype Password <Required />
+          </label>
+          <Input
+            name='retypePassword'
+            type='retypePassword'
+            required
+            id='RegistrationForm_password'>
+          </Input>
+        </div>
         <Button type='submit'>
           Register
         </Button>
       </form>
+      </div>
+      </div>
     )
   }
 }

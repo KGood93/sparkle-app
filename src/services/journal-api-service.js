@@ -3,7 +3,7 @@ import config from '../config'
 
 const JournalApiService = {
   getJournal() {
-    return fetch(`${config.API_ENDPOINT}/articles`, {
+    return fetch(`${config.API_ENDPOINT}/journal`, {
       headers: {
       },
     })
@@ -13,20 +13,8 @@ const JournalApiService = {
           : res.json()
       )
   },
-  getJournal(articleId) {
-    return fetch(`${config.API_ENDPOINT}/articles/${articleId}`, {
-      headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  },
-  getEntry(articleId) {
-    return fetch(`${config.API_ENDPOINT}/articles/${articleId}/comments`, {
+  getJournal(journalId) {
+    return fetch(`${config.API_ENDPOINT}/journal/${journalId}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
@@ -37,15 +25,27 @@ const JournalApiService = {
           : res.json()
       )
   },
-  postEntry(articleId, text) {
-    return fetch(`${config.API_ENDPOINT}/comments`, {
+  getEntry(entryId) {
+    return fetch(`${config.API_ENDPOINT}/entry/${entryId}`, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  postEntry(journalId, text) {
+    return fetch(`${config.API_ENDPOINT}/entry`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        article_id: articleId,
+        journalid: journalId,
         text,
       }),
     })
@@ -57,4 +57,4 @@ const JournalApiService = {
   }
 }
 
-export default ArticleApiService
+export default JournalApiService

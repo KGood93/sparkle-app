@@ -25,7 +25,7 @@ export default class Header extends Component {
     return (
       <div className='Header_not-logged-in'>
         <Link
-          to='/register'>
+          to='/registration'>
           Register
         </Link>
         <Link

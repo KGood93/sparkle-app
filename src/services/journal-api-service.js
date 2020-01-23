@@ -2,17 +2,6 @@ import TokenService from '../services/token-service'
 import config from '../config'
 
 const JournalApiService = {
-  getJournal() {
-    return fetch(`${config.API_ENDPOINT}/journal`, {
-      headers: {
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  },
   getJournal(journalId) {
     return fetch(`${config.API_ENDPOINT}/journal/${journalId}`, {
       headers: {
@@ -25,7 +14,19 @@ const JournalApiService = {
           : res.json()
       )
   },
-  getEntry(entryId) {
+  getEntry() {
+    return fetch(`${config.API_ENDPOINT}/entry/`, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  getEntryById(entryId) {
     return fetch(`${config.API_ENDPOINT}/entry/${entryId}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,

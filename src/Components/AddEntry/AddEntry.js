@@ -74,8 +74,8 @@ class AddEntry extends React.Component {
             title: title.value,
             //date: newDate.toJSON(),
             content: content.value,
-            journalid: 100, 
-            quoteid: 7,
+            journalid: 1, 
+            quoteid: 1,
         }
 
         console.log('Entry: ', entry);

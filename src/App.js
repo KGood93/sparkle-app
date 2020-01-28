@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
 import Journal from './Components/Journal/Journal'
 import Header from './Components/Header/Header'
+import PrivateRoute from './Components/Utils/PrivateRoute'
+import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute'
 import Login from './Components/Login/Login'
 import Registration from './Components/Registration/Registration'
 import './App.css'
@@ -23,7 +25,7 @@ class App extends Component {
   componentDidMount() {
     this.fetchEntry();
     this.fetchQuote();
-    const journalUrl = `${config.API_ENDPOINT}/journal/100`;
+    const journalUrl = `${config.API_ENDPOINT}/journal/1`;
     const options = {
       method: 'GET',
       headers: {
@@ -116,17 +118,17 @@ class App extends Component {
     return (
       <>
         {['/', '/journal'].map(path => (
-          <Route 
+          <PrivateRoute 
             exact
             key={path}
             path={path}
             component={Journal}
           />
         ))}
-        <Route path='/login' component={Login} />
-        <Route path='/registration' component={Registration} />
-        <Route path='/addEntry' component={AddEntry} />
-        <Route path='/entry/:entryId' component={EntryMain}/>
+        <PublicOnlyRoute path='/login' component={Login} />
+        <PublicOnlyRoute path='/registration' component={Registration} />
+        <PrivateRoute path='/addEntry' component={AddEntry} />
+        <PrivateRoute path='/entry/:entryId' component={EntryMain}/>
       </>
     );
   }

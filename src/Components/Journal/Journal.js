@@ -11,10 +11,7 @@ import ApiContext from '../../ApiContext'
 class Journal extends React.Component {
   static contextType = ApiContext;
 
-
-
     render() {
-
         return (
           <div className="main"> 
           <div className="entryButton">

@@ -8,11 +8,11 @@ const JournalApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+    //  .then(res =>
+    //    (!res.ok)
+    //      ? res.json().then(e => Promise.reject(e))
+    //      : res.json()
+    //  )
   },
   getEntry() {
     return fetch(`${config.API_ENDPOINT}/entry/`, {
@@ -20,11 +20,11 @@ const JournalApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+    //  .then(res =>
+    //    (!res.ok)
+    //      ? res.json().then(e => Promise.reject(e))
+    //      : res.json()
+    //  )
   },
   getEntryById(entryId) {
     return fetch(`${config.API_ENDPOINT}/entry/${entryId}`, {
@@ -32,11 +32,11 @@ const JournalApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+    //  .then(res =>
+    //    (!res.ok)
+    //      ? res.json().then(e => Promise.reject(e))
+    //      : res.json()
+    //  )
   },
   postEntry(journalId, text) {
     return fetch(`${config.API_ENDPOINT}/entry`, {
@@ -50,11 +50,11 @@ const JournalApiService = {
         text,
       }),
     })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+    //  .then(res =>
+    //    (!res.ok)
+    //      ? res.json().then(e => Promise.reject(e))
+    //      : res.json()
+    //  )
   }
 }
 

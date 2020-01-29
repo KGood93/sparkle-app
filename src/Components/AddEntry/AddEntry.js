@@ -6,6 +6,8 @@ import Quote from '../Quote/Quote'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
 import ValidationError from '../ValidationError/validationError'
+//import JournalApiService from '../../services/journal-api-service'
+import TokenService from '../../services/token-service'
 
 class AddEntry extends React.Component {
     static contextType = ApiContext;
@@ -21,7 +23,7 @@ class AddEntry extends React.Component {
                 value: '',
                 touched: false
             },
-            newQuoteId: 1
+            quoteid: 1
        }
     }
 
@@ -41,6 +43,7 @@ class AddEntry extends React.Component {
           //console.log(lastEntry.quoteid)
           const nextQuoteId = lastEntry.quoteid + 1
           //this.setState({newQuoteId: nextQuoteId})
+          //this.setState({quoteid: nextQuoteId})
           return nextQuoteId
         }
         else {
@@ -62,27 +65,26 @@ class AddEntry extends React.Component {
     
     handleSubmit = event => {
         event.preventDefault();
-        const { title, content, newQuoteId } = this.state;
-
-        //const newDate = new Date()
+        const { title, content } = this.state;
 
         console.log("Title:", title.value);
         console.log("Content:", content.value);
 
         const entry = {
-            //entryid: 110,
             title: title.value,
-            //date: newDate.toJSON(),
             content: content.value,
-            journalid: 1, 
-            quoteid: 1,
+            journalid: 1, //Fix This Line
+            quoteid: 3, //Fix This Line
         }
 
         console.log('Entry: ', entry);
 
         fetch(`${config.API_ENDPOINT}/entry`, {
             method: 'POST',
-            headers: {'Content-Type':'application/json'},
+            headers: {
+                'Content-Type':'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(entry)
            })
     //       .then(res => {
@@ -113,6 +115,8 @@ class AddEntry extends React.Component {
         const quoteid = this.getNewQuoteId()
         //this.updateQuoteId(quoteid)
         
+        console.log("quoteId", quoteid)
+
         return (
             <section className='AddEntry'>
             <h2>Add Entry</h2>

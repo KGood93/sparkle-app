@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route} from 'react-router-dom'
+//import {Route} from 'react-router-dom'
 import Journal from './Components/Journal/Journal'
 import Header from './Components/Header/Header'
 import PrivateRoute from './Components/Utils/PrivateRoute'
@@ -11,6 +11,8 @@ import AddEntry from './Components/AddEntry/AddEntry'
 import EntryMain from './Components/EntryMain/EntryMain'
 import config from './config'
 import ApiContext from './ApiContext'
+import TokenService from './services/token-service'
+import JournalApiService from './services/journal-api-service'
 
 class App extends Component {
   constructor(props) {
@@ -25,32 +27,41 @@ class App extends Component {
   componentDidMount() {
     this.fetchEntry();
     this.fetchQuote();
-    const journalUrl = `${config.API_ENDPOINT}/journal/1`;
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
+    //const journalUrl = `${config.API_ENDPOINT}/journal/1`;
+    //const options = {
+    //  method: 'GET',
+    //  headers: {
+    //    'Content-Type': 'application/json',
+    //    'authorization': `bearer ${TokenService.getAuthToken()}`
+    //  }
+    //};
 
-    fetch(journalUrl, options)
-      .then(res => {
-        if(res.ok) {
-          return res.json()
-        }
-        else {
-          throw new Error('Something went wrong loading journal')
-        }
-      })
-      .then(data => {
-        this.setState({journal: data})
+    //fetch(journalUrl, options)
+    //  .then(res => {
+    //    if(res.ok) {
+    //      return res.json()
+    //    }
+    //    else {
+     //     throw new Error('Something went wrong loading journal')
+    //    }
+    //  })
+    //  .then(data => {
+    //    this.setState({journal: data})
         //console.log(data)
-      })
-      .catch(err => {
-        this.setState({
-          error: err.message
-        })
-      })
+    //  })
+    //  .catch(err => {
+    //    this.setState({
+    //      error: err.message
+    //    })
+    //  })
+
+    //JournalApiService.getEntry()
+    //console.log(JournalApiService.getEntry())
+    //this.setState({entry: JournalApiService.getEntry()})
+    //const entries = JournalApiService.getEntry()
+    //console.log(entries)
+    //this.setState({entry: entries})
+    JournalApiService.getJournal(1)
     
   }
 
@@ -59,7 +70,8 @@ class App extends Component {
     const entryOptions = {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       }
     }
 
@@ -129,6 +141,7 @@ class App extends Component {
         <PublicOnlyRoute path='/registration' component={Registration} />
         <PrivateRoute path='/addEntry' component={AddEntry} />
         <PrivateRoute path='/entry/:entryId' component={EntryMain}/>
+
       </>
     );
   }

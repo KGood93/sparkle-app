@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import './JournalEntry.css'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
+import TokenService from '../../services/token-service'
 
 class JournalEntry extends Component {
     static contextType = ApiContext
@@ -15,7 +16,8 @@ class JournalEntry extends Component {
         fetch(`${config.API_ENDPOINT}/entry/${entryid}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
             },
         })
             .then(res => {
@@ -41,7 +43,7 @@ class JournalEntry extends Component {
             entries.map((entryDetail, index) => {
                 //console.log(entryDetail)
                 return (
-                    <div className="journalEntry">
+                    <div className="journalEntry" key={index}>
                         <h1>
                             <Link to={`/entry/${entryDetail.entryid}`}>
                                 {entryDetail.title}

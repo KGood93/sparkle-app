@@ -3,16 +3,17 @@ import config from '../config'
 
 const JournalApiService = {
   getJournal(journalId) {
+    //console.log("Login", TokenService.getAuthToken())
     return fetch(`${config.API_ENDPOINT}/journal/${journalId}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
-    //  .then(res =>
-    //    (!res.ok)
-    //      ? res.json().then(e => Promise.reject(e))
-    //      : res.json()
-    //  )
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
   },
   getEntry() {
     return fetch(`${config.API_ENDPOINT}/entry/`, {
@@ -20,11 +21,15 @@ const JournalApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
-    //  .then(res =>
-    //    (!res.ok)
-    //      ? res.json().then(e => Promise.reject(e))
-    //      : res.json()
-    //  )
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(data => {
+        console.log(data)
+        return data
+      })
   },
   getEntryById(entryId) {
     return fetch(`${config.API_ENDPOINT}/entry/${entryId}`, {
@@ -50,11 +55,11 @@ const JournalApiService = {
         text,
       }),
     })
-    //  .then(res =>
-    //    (!res.ok)
-    //      ? res.json().then(e => Promise.reject(e))
-    //      : res.json()
-    //  )
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import './AddEntry.css'
 import EntryForm from '../EntryForm/EntryForm'
 import Quote from '../Quote/Quote'
@@ -14,6 +14,8 @@ class AddEntry extends React.Component {
 
     constructor(props) {
         super(props);
+        this.getNewQuoteId = this.getNewQuoteId.bind(this)
+        this.context = ApiContext
         this.state = {
             title: {
                 value: '',
@@ -23,8 +25,10 @@ class AddEntry extends React.Component {
                 value: '',
                 touched: false
             },
-            quoteid: 1
+            quoteid: this.getNewQuoteId(),
+            redirect: false
        }
+       
     }
 
     static defaultProps = {
@@ -33,27 +37,28 @@ class AddEntry extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.getNewQuoteId()
+    }
+
     getNewQuoteId() {
         const {entry=[]} = this.context
-        console.log(entry)
+        //console.log(entry)
+        //console.log(entry.length)
         //get length of array //get object of last positions in array
         if (entry.length !== 0) {
           const lastEntry = entry[entry.length - 1]
-          console.log(lastEntry)
+          //console.log(lastEntry)
           //console.log(lastEntry.quoteid)
           const nextQuoteId = lastEntry.quoteid + 1
-          //this.setState({newQuoteId: nextQuoteId})
-          //this.setState({quoteid: nextQuoteId})
-          return nextQuoteId
+          this.setState({quoteid: nextQuoteId})
+          //this.updateQuoteId(nextQuoteId)
+          //return nextQuoteId
         }
         else {
-          return 1
+          this.setState({quoteid: 1})
         }
       }
-
-    updateQuoteId(quoteId) {
-        this.setState({newQuoteId: quoteId});
-    }
 
     updateTitle(entryTitle) {
         this.setState({title: {value: entryTitle, touched: true}});
@@ -65,19 +70,20 @@ class AddEntry extends React.Component {
     
     handleSubmit = event => {
         event.preventDefault();
-        const { title, content } = this.state;
+        const { title, content, quoteid } = this.state;
 
-        console.log("Title:", title.value);
-        console.log("Content:", content.value);
+        //console.log("Title:", title.value);
+        //console.log("Content:", content.value);
+        console.log(quoteid)
 
         const entry = {
             title: title.value,
             content: content.value,
             journalid: 1, //Fix This Line
-            quoteid: 3, //Fix This Line
+            quoteid: this.state.quoteid //Fix This Line
         }
 
-        console.log('Entry: ', entry);
+        //console.log('Entry: ', entry);
 
         fetch(`${config.API_ENDPOINT}/entry`, {
             method: 'POST',
@@ -87,16 +93,13 @@ class AddEntry extends React.Component {
             },
             body: JSON.stringify(entry)
            })
-    //       .then(res => {
-    //           if (!res.ok) {
-    //               return res.json().then(event => Promise.reject(event))
-    //           }
-    //           return res.json()
-    //       })
-           .then(entry => {
+           //.then(entry => {
                //this.context.addEntry(entry)
-               this.props.history.push(`/entry/${entry.entryId}`)
-           })
+            //   this.props.history.push(`/journal`)
+           //})
+           .then(
+                this.setState({redirect: true})
+           )
           .catch(error => {
                console.error({ error })
            })
@@ -112,10 +115,12 @@ class AddEntry extends React.Component {
 
     render() {
         const titleError = this.validateTitle();
-        const quoteid = this.getNewQuoteId()
+        //const quoteid = this.getNewQuoteId()
         //this.updateQuoteId(quoteid)
         
-        console.log("quoteId", quoteid)
+        //console.log("quoteId", quoteid)
+        //console.log(this.state.quoteid)
+        //console.log(this.state.redirect)
 
         return (
             <section className='AddEntry'>
@@ -136,7 +141,7 @@ class AddEntry extends React.Component {
                     {this.state.title.touched && <ValidationError message={titleError} />}
 
                 </div>
-                <Quote quoteid={quoteid}/>
+                <Quote quoteid={this.state.quoteid}/>
                 <div className="entryContent">
                     <textarea 
                         name="entryContent"
@@ -148,11 +153,13 @@ class AddEntry extends React.Component {
                 <div className="addition_button">
                     <button type="submit" 
                     disabled = {this.validateTitle()}
-                    className="add">
+                    className="add"
+                    >
                         Add Entry
                     </button>
                 </div>
             </EntryForm>
+            {this.state.redirect && <Redirect to={'/journal'}/>}
             </section>
         )
     }

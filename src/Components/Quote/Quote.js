@@ -10,11 +10,11 @@ class Quote extends Component {
       const {quotes = []} = this.context
       //console.log(quotes)
       const quoteid = this.props.quoteid
-      console.log(quoteid)
+      //console.log(quoteid)
       const quoteId = parseInt(quoteid)
       //console.log(quoteId)
       const disQuote = findQuote(quotes, quoteId) || {quote: '', author: '', used: ''}
-      console.log(disQuote)
+      //console.log(disQuote)
         return (
             <div className="entryMain">
               <section className="motivQuote">

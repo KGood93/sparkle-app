@@ -87,7 +87,6 @@ class App extends Component {
       })
       .then(data => {
         this.setState({entry: data})
-        //console.log(data)
       })
       .catch(err => {
         this.setState({
@@ -98,7 +97,7 @@ class App extends Component {
 
   fetchQuote() {
     const quoteUrl = `${config.API_ENDPOINT}/quote`
-    //Still need to write server endpoint
+
     const quoteOptions = {
       method: 'GET',
       headers: {
@@ -117,7 +116,6 @@ class App extends Component {
       })
       .then(data => {
         this.setState({quotes: data})
-        //console.log(data)
       })
       .catch(err => {
         this.setState({
@@ -149,14 +147,7 @@ class App extends Component {
     const value = {
       entry: this.state.entry,
       quotes: this.state.quotes,
-      //newQuoteId: this.state.newQuoteId
     }
-
-    //console.log(value.newQuoteId)
-    //const nextQuoteId = this.getNewQuoteId(value.entry)
-    //console.log(nextQuoteId)
-    //value.newQuoteId = nextQuoteId
-    //console.log(value.newQuoteId)
 
     return (
       <ApiContext.Provider value={value}>

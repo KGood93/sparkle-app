@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-services'
 import { Button, Input } from '../Utils/Utils'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import './Login.css'
 
 export default class LoginForm extends Component {
@@ -10,7 +10,10 @@ export default class LoginForm extends Component {
     onLoginSuccess: () => {}
   }
 
-  state = { error: null }
+  state = { 
+    error: null,
+    redirect: false
+  }
 
   handleSubmitBasicAuth = ev => {
     ev.preventDefault()
@@ -37,10 +40,13 @@ export default class LoginForm extends Component {
       .then(res => {
         username.value = ''
         password.value = ''
-        console.log(res)
+        //console.log(res)
         //TokenService.saveAuthToken(res.authToken)
         this.props.onLoginSuccess()
       })
+      .then(
+        this.setState({redirect: true})
+      )
       .catch(res => {
         this.setState({error: res.error})
       })
@@ -82,6 +88,7 @@ export default class LoginForm extends Component {
         <br />
         <Link to='/registration'>New User?</Link>
       </form>
+      {this.state.redirect && <Redirect to={'/journal'}/>}
       </div>
       </div>
     )

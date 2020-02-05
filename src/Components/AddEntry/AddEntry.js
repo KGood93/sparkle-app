@@ -43,17 +43,11 @@ class AddEntry extends React.Component {
 
     getNewQuoteId() {
         const {entry=[]} = this.context
-        //console.log(entry)
-        //console.log(entry.length)
         //get length of array //get object of last positions in array
         if (entry.length !== 0) {
           const lastEntry = entry[entry.length - 1]
-          //console.log(lastEntry)
-          //console.log(lastEntry.quoteid)
           const nextQuoteId = lastEntry.quoteid + 1
           this.setState({quoteid: nextQuoteId})
-          //this.updateQuoteId(nextQuoteId)
-          //return nextQuoteId
         }
         else {
           this.setState({quoteid: 1})
@@ -74,13 +68,13 @@ class AddEntry extends React.Component {
 
         //console.log("Title:", title.value);
         //console.log("Content:", content.value);
-        console.log(quoteid)
+        //console.log(quoteid)
 
         const entry = {
             title: title.value,
             content: content.value,
-            journalid: 1, //Fix This Line
-            quoteid: this.state.quoteid //Fix This Line
+            journalid: 1,
+            quoteid: this.state.quoteid 
         }
 
         //console.log('Entry: ', entry);
@@ -93,10 +87,6 @@ class AddEntry extends React.Component {
             },
             body: JSON.stringify(entry)
            })
-           //.then(entry => {
-               //this.context.addEntry(entry)
-            //   this.props.history.push(`/journal`)
-           //})
            .then(
                 this.setState({redirect: true})
            )
@@ -115,12 +105,6 @@ class AddEntry extends React.Component {
 
     render() {
         const titleError = this.validateTitle();
-        //const quoteid = this.getNewQuoteId()
-        //this.updateQuoteId(quoteid)
-        
-        //console.log("quoteId", quoteid)
-        //console.log(this.state.quoteid)
-        //console.log(this.state.redirect)
 
         return (
             <section className='AddEntry'>

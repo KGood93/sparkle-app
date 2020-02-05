@@ -3,7 +3,7 @@ import TokenService from './token-service'
 
 const AuthApiService = {
     postLogin(credentials) {
-        console.log(credentials)
+        //console.log(credentials)
         return fetch(`${config.API_ENDPOINT}/auth/login`, {
             method: 'POST',
             headers: {
@@ -17,7 +17,7 @@ const AuthApiService = {
               : res.json() 
         })
         .then(res => {
-            console.log(res)
+            //console.log(res)
             TokenService.saveAuthToken(res.authToken)
         })
     },

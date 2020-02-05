@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 import { Button, Input, Required } from '../Utils/Utils'
 import AuthApiService from '../../services/auth-api-services'
 import './Registration.css'
@@ -8,11 +9,10 @@ export default class RegistrationForm extends Component {
     onRegistrationSuccess: () => {}
   }
 
-  state = { error: null }
-
-  //Need to format input...being sent to server in incorrect format
-
-  //Add password comparison 
+  state = { 
+    error: null,
+    redirect: false  
+  }
 
   handleSubmit = ev => {
     ev.preventDefault()
@@ -28,16 +28,13 @@ export default class RegistrationForm extends Component {
       password.value = ''
       this.props.onRegistrationSuccess()
     })
+    .then(
+      this.setState({redirect: true})
+    )
     .catch(res => {
       this.setState({error: res.error})
     })
 
-  }
-
-  passwordMatch(password, retype) {
-    if (password === retype) {
-      return password
-    }
   }
 
   render() {
@@ -70,17 +67,6 @@ export default class RegistrationForm extends Component {
             name='password'
             type='password'
             required
-            id='RegistrationForm__password'>
-          </Input>
-        </div>
-        <div className='retypePassword'>
-          <label htmlFor='RegistrationForm_password' className="inputLable">
-            Retype Password <Required />
-          </label>
-          <Input
-            name='retypePassword'
-            type='retypePassword'
-            required
             id='RegistrationForm_password'>
           </Input>
         </div>
@@ -88,6 +74,7 @@ export default class RegistrationForm extends Component {
           Register
         </Button>
       </form>
+      {this.state.redirect && <Redirect to={'/login'}/>}
       </div>
       </div>
     )

@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-//import {Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import Journal from './Components/Journal/Journal'
 import Header from './Components/Header/Header'
-import PrivateRoute from './Components/Utils/PrivateRoute'
-import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute'
-import Login from './Components/Login/Login'
-import Registration from './Components/Registration/Registration'
+//import PrivateRoute from './Components/Utils/PrivateRoute'
+//import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute'
+//import Login from './Components/Login/Login'
+//import Registration from './Components/Registration/Registration'
 import './App.css'
 import AddEntry from './Components/AddEntry/AddEntry'
 import EntryMain from './Components/EntryMain/EntryMain'
@@ -127,18 +127,18 @@ class App extends Component {
   renderNavRoutes() {
     return (
       <>
-        {['/', '/journal'].map(path => (
-          <PrivateRoute 
+        {['/', '/journal'].map(path => {
+          console.log("Route")
+          return(
+          <Route 
             exact
             key={path}
             path={path}
             component={Journal}
           />
-        ))}
-        <PublicOnlyRoute path='/login' component={Login} />
-        <PublicOnlyRoute path='/registration' component={Registration} />
-        <PrivateRoute path='/addEntry' component={AddEntry} />
-        <PrivateRoute path='/entry/:entryId' component={EntryMain}/>
+        )})}
+        <Route path='/addEntry' component={AddEntry} />
+        <Route path='/entry/:entryId' component={EntryMain}/>
 
       </>
     );

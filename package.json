@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@welldone-software/why-did-you-render": "^4.0.3",
     "btoa": "^1.2.1",
     "date-fns": "^2.8.1",
     "prop-types": "^15.7.2",

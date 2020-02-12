@@ -5,7 +5,13 @@ import { Button, Input } from '../Utils/Utils'
 import {Link, Redirect} from 'react-router-dom'
 import './Login.css'
 
+if (process.env.NODE_ENV === 'development') {
+  const whyDidYouRender = require('@welldone-software/why-did-you-render/dist/no-classes-transpile/umd/whyDidYouRender.min.js');
+  whyDidYouRender(React);
+}
+
 export default class LoginForm extends Component {
+  static whyDidYouRender = true
   static defaultProps = {
     onLoginSuccess: () => {}
   }
@@ -15,22 +21,10 @@ export default class LoginForm extends Component {
     redirect: false
   }
 
-  handleSubmitBasicAuth = ev => {
-    ev.preventDefault()
-    const { username, password } = ev.target
-
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(username.value, password.value)
-    )
-
-    username.value = ''
-    password.value = ''
-    this.props.onLoginSuccess()
-  }
-
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
-    this.setState({error: null})
+    //this.setState({error: null})
+    
     const {username, password} = ev.target
 
     AuthApiService.postLogin({
@@ -40,29 +34,25 @@ export default class LoginForm extends Component {
       .then(res => {
         username.value = ''
         password.value = ''
-        //console.log(res)
-        //TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res.authToken)
         this.props.onLoginSuccess()
       })
-      .then(
+      .then (
         this.setState({redirect: true})
       )
       .catch(res => {
-        this.setState({error: res.error})
+        //this.setState({error: res.error, redirect: true})
       })
   }
 
   render() {
-    const { error } = this.state
+    //const { error } = this.state
     return (
       <div className="loginMain">
         <div className='loginForm'>
       <form
         onSubmit={this.handleSubmitJwtAuth}
       >
-        <div role='alert'>
-          {error && <p className='red'>{error}</p>}
-        </div>
         <div className='username'>
           <label htmlFor='inputLabel'>
             Username
@@ -88,6 +78,7 @@ export default class LoginForm extends Component {
         <br />
         <Link to='/registration'>New User?</Link>
       </form>
+      {console.log(this.state.redirect)}
       {this.state.redirect && <Redirect to={'/journal'}/>}
       </div>
       </div>

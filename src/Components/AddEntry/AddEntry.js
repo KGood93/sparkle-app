@@ -82,8 +82,7 @@ class AddEntry extends React.Component {
         fetch(`${config.API_ENDPOINT}/entry`, {
             method: 'POST',
             headers: {
-                'Content-Type':'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
+                'Content-Type':'application/json'
             },
             body: JSON.stringify(entry)
            })

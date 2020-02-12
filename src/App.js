@@ -70,8 +70,7 @@ class App extends Component {
     const entryOptions = {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`
+        'Content-Type': 'application/json'
       }
     }
 
@@ -128,7 +127,6 @@ class App extends Component {
     return (
       <>
         {['/', '/journal'].map(path => {
-          console.log("Route")
           return(
           <Route 
             exact

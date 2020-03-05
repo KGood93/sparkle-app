@@ -5,5 +5,6 @@ export default React.createContext({
     quotes: [],
     addEntry: () => {},
     deleteEntry: () => {},
+    fetchEntry: () => {},
     setNewId: () => {}
 })

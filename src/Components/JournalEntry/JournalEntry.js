@@ -3,36 +3,42 @@ import {Link} from 'react-router-dom'
 import './JournalEntry.css'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
-import TokenService from '../../services/token-service'
+//import TokenService from '../../services/token-service'
 
 class JournalEntry extends Component {
     static contextType = ApiContext
 
-    handleClickDelete = e => {
+    deleteEntry = e => {
         e.preventDefault()
         const entryid = e.target.id
         console.log(entryid)
 
+        //this.props.history.push(`/`)
+
         fetch(`${config.API_ENDPOINT}/entry/${entryid}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
+                'content-type': 'application/json'
             },
         })
             .then(res => {
+                console.log(res)
                 if(!res.ok)
                     return res.json().then(e => Promise.reject(e))
-                    return res.json()
+                return res.json()
+            })
+            .then((myJson) => {
+                if(!myJson.ok) {
+                    Promise.reject(e)
+                }
             })
             .then(() => {
-                this.context.deleteEntry(entryid)
+               this.context.deleteEntry(entryid)
             })
             .catch(error => {
                 console.error({error})
             })
-    
-        
+     
     }
     
     render () {
@@ -50,7 +56,7 @@ class JournalEntry extends Component {
                             </Link>
                         </h1>
                         <p>{entryDetail.date}</p>
-                        <button className='journalEntry_delete' type='button' id={entryDetail.entryid} onClick={this.handleClickDelete}>
+                        <button className='journalEntry_delete' type='button' id={entryDetail.entryid} onClick={this.deleteEntry}>
                             {' '}
                             Remove
                         </button>

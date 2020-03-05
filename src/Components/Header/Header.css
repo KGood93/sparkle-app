@@ -1,5 +1,5 @@
 .Header {
-    height: 40px;
+    height: 60px;
     display: flex;
     align-items: normal;
     justify-content: space-between;
@@ -14,7 +14,8 @@
   }
   
   .Header a {
-    color: #444;
+    font-size: 40px;
+    color: rgb(6,106,117);
   }
   
   .Header_not-logged-in {

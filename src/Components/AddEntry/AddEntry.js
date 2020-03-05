@@ -7,7 +7,7 @@ import ApiContext from '../../ApiContext'
 import config from '../../config'
 import ValidationError from '../ValidationError/validationError'
 //import JournalApiService from '../../services/journal-api-service'
-import TokenService from '../../services/token-service'
+//import TokenService from '../../services/token-service'
 
 class AddEntry extends React.Component {
     static contextType = ApiContext;
@@ -82,7 +82,7 @@ class AddEntry extends React.Component {
         fetch(`${config.API_ENDPOINT}/entry`, {
             method: 'POST',
             headers: {
-                'Content-Type':'application/json'
+                'Content-Type':'application/json' 
             },
             body: JSON.stringify(entry)
            })

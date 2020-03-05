@@ -11,7 +11,7 @@ import AddEntry from './Components/AddEntry/AddEntry'
 import EntryMain from './Components/EntryMain/EntryMain'
 import config from './config'
 import ApiContext from './ApiContext'
-import TokenService from './services/token-service'
+//import TokenService from './services/token-service'
 import JournalApiService from './services/journal-api-service'
 
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
       entry: [],
       quotes: [],
     };
+    this.fetchEntry = this.fetchEntry.bind(this)
   }
 
   componentDidMount() {
@@ -123,6 +124,10 @@ class App extends Component {
       })
   }
 
+  handleDeleteEntry = id => {
+    this.fetchEntry()
+  };
+
   renderNavRoutes() {
     return (
       <>
@@ -145,6 +150,9 @@ class App extends Component {
     const value = {
       entry: this.state.entry,
       quotes: this.state.quotes,
+      deleteEntry: this.handleDeleteEntry,
+      addEntry: this.handleDeleteEntry,
+      fetchEntry: this.fetchEntry
     }
 
     return (

@@ -1,3 +1,7 @@
+.main {
+    background-image: url("01.jpg");
+}
+
 .entryButton {
     display: flex;
     justify-content: flex-end;

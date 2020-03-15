@@ -1,7 +1,7 @@
 .AddButton {
-    background-color: rgb(251,159,139);
+    background-color: rgb(241,221,210);
     border-radius: 60px;
-    border: 3px solid rgb(107,182,188);
+    border: 3px solid rgb(6, 106, 117);
     color: rgb(6, 106, 117);
     display: block;
     margin: auto;
@@ -15,6 +15,5 @@
 .AddButton:hover {
     cursor: pointer;
     background-color: rgb(107,182,188);
-    border: 3px solid rgb(251,159,139);
     color: rgb(241,221,210);
 }

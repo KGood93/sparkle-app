@@ -9,11 +9,11 @@ export default class Header extends Component {
   render() {
     return (
       <nav className='Header'>
-        <h1>
+        <h1 className='head'>
           <Link to='/'>
             {' '}
             Sparkle
-            </Link>
+          </Link>
         </h1>
       </nav>
     )

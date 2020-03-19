@@ -4,19 +4,47 @@
 body {
     margin: 0px;
     background-color: rgb(241,221,210);
+    background-image: url("01.jpg");
 }
 
 footer {
-    background-color: cadetblue;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     margin-top: 10px;
     height: 50px;
+    background-color: rgb(241,221,210);
+    border-top: solid 1px rgb(6,106,117);
     text-align: center;
+    color: rgb(6,106,117);
 }
 
 .mainHeader {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;/* vertical alignment */
-    margin-left: 20px;
-    margin-right: 20px;
+    background-color: rgb(241,221,210);
+    border-bottom: solid 7px rgb(6,106,117);
+}
+
+.home {
+    display: block;
+    margin: auto;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    color: rgb(6,106,117);
+}
+
+.home a:hover {
+    font-size: 25px;
+    color: rgb(6,106,117);
+}
+
+.home a:visited {
+    color: rgb(6,106,117);
+}
+
+@media screen and (min-width: 450px) {
+
 }

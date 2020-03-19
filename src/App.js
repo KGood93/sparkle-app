@@ -62,7 +62,7 @@ class App extends Component {
     //const entries = JournalApiService.getEntry()
     //console.log(entries)
     //this.setState({entry: entries})
-    JournalApiService.getJournal(1)
+    JournalApiService.getJournal(2)
     
   }
 

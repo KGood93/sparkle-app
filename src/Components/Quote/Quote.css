@@ -1,17 +1,31 @@
 .motivQuote {
-    border: 3px solid black;
+    border: solid rgb(6,106,117) 3px;
     background-color: rgb(241,221,210);
     margin: 15px;
     margin-bottom: 0px;
-    width: 350px;
+    width: 275px;
 }
 
 .motivQuote h2 {
     margin: 5px;
     text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: rgb(6,106,117);
 }
 
 .motivQuote h4 {
     margin: 5px;
     text-align: center;
+    font-family: 'Rochester', cursive;
+    color: rgb(6,106,117);
+}
+
+@media screen and (min-width: 450px) {
+    .motivQuote {
+        border: 3px solid black;
+        background-color: rgb(241,221,210);
+        margin: 15px;
+        margin-bottom: 0px;
+        width: 350px;
+    }
 }

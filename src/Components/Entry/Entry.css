@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("01.jpg");
+
 }
 
 .home {
@@ -19,22 +19,43 @@
 
 .nameLabel {
     margin-right: 5px;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Playfair Display', serif;
+    color: rgb(6,106,117);
+    font-weight: bold;
+
 }
 
-.nameInput {
-    width: 275px;
+.titleInput {
+    width: 175px;
     height: 30px;
+    border: solid rgb(6,106,117) 2px;
+    font-family: 'Playfair Display', serif;
+    font-size: 14pt;
+    padding: 2px;
+    padding-left: 4px;
 }
 
-#entryContent {
+.eContent {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    width: 275px;
+    border: 3px solid rgb(6,106,117);
+    font-family: 'Playfair Display', serif;
+    font-size: 14pt;
 }
 
 .deleteEntry {
     display: block;
     margin: auto;
+    margin-bottom: 15px;
+    border: solid rgb(6,106,117) 2px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 20px;
+    height: 34px;
+    color: rgb(6,106,117);
+    background-color: rgb(241,221,210);
 }

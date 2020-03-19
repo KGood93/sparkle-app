@@ -73,7 +73,7 @@ class AddEntry extends React.Component {
         const entry = {
             title: title.value,
             content: content.value,
-            journalid: 1,
+            journalid: 2,
             quoteid: this.state.quoteid 
         }
 
@@ -107,7 +107,6 @@ class AddEntry extends React.Component {
 
         return (
             <section className='AddEntry'>
-            <h2>Add Entry</h2>
             <div className="home">
                 <Link to='/journal'>Home</Link>
             </div>
@@ -128,9 +127,10 @@ class AddEntry extends React.Component {
                 <div className="entryContent">
                     <textarea 
                         name="entryContent"
+                        className="eContent"
                         id="entryContent"
                         onChange={e => this.updateContent(e.target.value)}
-                        >
+                    >
                     </textarea>
                 </div>
                 <div className="addition_button">

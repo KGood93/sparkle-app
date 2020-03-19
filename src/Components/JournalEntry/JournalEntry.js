@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import './JournalEntry.css'
+import moment from 'moment'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
 //import TokenService from '../../services/token-service'
@@ -50,12 +51,10 @@ class JournalEntry extends Component {
                 //console.log(entryDetail)
                 return (
                     <div className="journalEntry" key={index}>
-                        <h1>
-                            <Link to={`/entry/${entryDetail.entryid}`}>
-                                {entryDetail.title}
-                            </Link>
-                        </h1>
-                        <p>{entryDetail.date}</p>
+                        <Link to={`/entry/${entryDetail.entryid}`} className='entryTitle'>
+                            {entryDetail.title}
+                        </Link>
+                        <p className="date">{moment(entryDetail.date).format('YYYY-MM-DD')}</p>
                         <button className='journalEntry_delete' type='button' id={entryDetail.entryid} onClick={this.deleteEntry}>
                             {' '}
                             Remove

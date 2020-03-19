@@ -5,9 +5,10 @@
     color: rgb(6, 106, 117);
     display: block;
     margin: auto;
+    padding: 40px 10px;
+    font-family: 'Playfair Display', serif;
     font-size: 20px;
     font-weight: bold;
-    padding: 40px 10px;
     text-align: center;
     text-decoration: none;
 }

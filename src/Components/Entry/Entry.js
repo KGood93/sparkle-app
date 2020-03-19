@@ -21,10 +21,10 @@ class Entry extends React.Component {
                     <Link to='/journal'>Home</Link>
                 </div>
                 <div className="name">
-                    <label htmlFor="EntryName" className="nameLabel">Name:</label>
+                    <label htmlFor="EntryName" className="nameLabel">Title:</label>
                     <input 
                         type="text"
-                        className="Entry_control"
+                        className="titleInput"
                         name="entryName"
                         id="entryName"
                         value={this.props.title}
@@ -36,6 +36,7 @@ class Entry extends React.Component {
                 <div className="entryContent">
                     <textarea 
                         name="entryContent"
+                        className="eContent"
                         id="entryContent"
                         value={this.props.content}
                         >

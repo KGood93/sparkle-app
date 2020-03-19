@@ -17,7 +17,13 @@ class Journal extends React.Component {
 
     render() {
         return (
-          <div className="main"> 
+          <div className="main">
+          <div className="disription">
+            <p className="descripText">Sparkle is a motivational journaling app to help inspire
+               you to lead your best live. Add a new entry or look 
+               back on previous entries to help spark your dreams and 
+               creativity. </p>
+          </div>
           <div className="entryButton">
             <AddButton tag={Link} 
                 to='/addEntry'

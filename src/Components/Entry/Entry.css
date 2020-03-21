@@ -59,3 +59,13 @@
     color: rgb(6,106,117);
     background-color: rgb(241,221,210);
 }
+
+@media screen and (min-width: 450px) {
+    .titleInput {
+        width: 250px;
+    }
+
+    .eContent {
+        width: 400px;
+    }
+}

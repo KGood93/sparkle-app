@@ -9,6 +9,7 @@ import Header from './Components/Header/Header'
 import './App.css'
 import AddEntry from './Components/AddEntry/AddEntry'
 import EntryMain from './Components/EntryMain/EntryMain'
+import Footer from './Components/Footer/Footer'
 import config from './config'
 import ApiContext from './ApiContext'
 //import TokenService from './services/token-service'
@@ -161,11 +162,10 @@ class App extends Component {
           <header className="mainHeader">
             <Header />
           </header>
-          <nav className="AppNav">{this.renderNavRoutes()}</nav>
-
-          <footer>
-            <p>Important Info</p>
-          </footer>
+          <div className="mainBody">
+            <nav className="AppNav">{this.renderNavRoutes()}</nav>
+          </div>
+          <Footer />
         </div>
       </ApiContext.Provider>
 

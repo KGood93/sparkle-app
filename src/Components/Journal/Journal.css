@@ -1,4 +1,4 @@
-.disription {
+.discription {
     border: solid rgb(7,123,136) 3px;
     background-color: rgb(241,221,210);
     width: 250px;
@@ -8,4 +8,23 @@
 .descripText {
     font-family: 'Playfair Display', serif;
     margin: 10px;
+}
+
+.entries {
+    margin-top: 10px;
+    margin-bottom: 200px;
+}
+
+@media screen and (min-width: 450px) {
+    .discription {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .entries {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

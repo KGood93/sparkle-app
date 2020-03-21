@@ -58,5 +58,11 @@ h2 {
 }
 
 @media screen and (min-width: 450px) {
+    .titleInput {
+        width: 250px;
+    }
 
+    .eContent {
+        width: 400px;
+    }
 }

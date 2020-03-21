@@ -7,17 +7,8 @@ body {
     background-image: url("01.jpg");
 }
 
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    margin-top: 10px;
-    height: 50px;
-    background-color: rgb(241,221,210);
-    border-top: solid 1px rgb(6,106,117);
-    text-align: center;
-    color: rgb(6,106,117);
+.mainBody {
+    margin-bottom: 40px;
 }
 
 .mainHeader {

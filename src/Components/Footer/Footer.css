@@ -1,0 +1,33 @@
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(241,221,210);
+    border-top: solid 1px rgb(6,106,117);
+    text-align: center;
+}
+
+.footerText {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: rgb(6,106,117);
+}
+
+.footerLink:link {
+    color: rgb(6,106,117);
+}
+  
+.footerLink:visited {
+    color: rgb(6,106,117);
+}
+  
+.footerLink:hover {
+    color: rgb(251,159,139);
+}
+  
+.footerLink:active {
+    color: rgb(251,159,139);
+}

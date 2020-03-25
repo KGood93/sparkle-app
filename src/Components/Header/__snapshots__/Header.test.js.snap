@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders without crashing 1`] = `
+<nav
+  className="Header"
+>
+  <h1
+    className="head"
+  >
+    <Link
+      to="/"
+    >
+       
+      Sparkle
+    </Link>
+  </h1>
+</nav>
+`;

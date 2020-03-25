@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component renders without crashing 1`] = `
+<footer
+  className="footer"
+>
+  <p
+    className="footerText"
+  >
+    Kathryn A. Goodreau
+  </p>
+  <p
+    className="footerText"
+  >
+    E-mail: 
+    <a
+      className="footerLink"
+      href="mailto:goodreau.kath@gmail.com?Subject=Hello"
+    >
+      goodreau.kath@gmail.com
+    </a>
+  </p>
+  <p
+    className="footerText"
+  >
+    Links of Interest: 
+    <a
+      className="footerLink"
+      href="https://github.com/KGood93"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Github
+    </a>
+     and 
+    <a
+      className="footerLink"
+      href="https://www.linkedin.com/in/kathrynagoodreau/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      LinkedIn
+    </a>
+  </p>
+</footer>
+`;

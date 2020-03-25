@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Entry Component renders without crashing 1`] = `
+<div
+  className="entry"
+>
+  <div
+    className="home"
+  >
+    <Link
+      to="/journal"
+    >
+      Home
+    </Link>
+  </div>
+  <div
+    className="name"
+  >
+    <label
+      className="nameLabel"
+      htmlFor="EntryName"
+    >
+      Title:
+    </label>
+    <input
+      className="titleInput"
+      id="entryName"
+      name="entryName"
+      type="text"
+    />
+  </div>
+  <Quote />
+  <div
+    className="entryContent"
+  >
+    <textarea
+      className="eContent"
+      id="entryContent"
+      name="entryContent"
+    />
+  </div>
+  <button
+    className="deleteEntry"
+    type="button"
+  >
+     
+    Remove
+  </button>
+</div>
+`;

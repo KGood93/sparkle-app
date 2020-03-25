@@ -12,7 +12,7 @@ class Journal extends React.Component {
   static contextType = ApiContext;
 
   componentDidMount() {
-    this.context.fetchEntry
+    this.context.fetchEntry()
   }
 
     render() {

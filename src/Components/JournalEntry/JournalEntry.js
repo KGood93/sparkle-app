@@ -1,10 +1,13 @@
+/*Adds divs containing title, date and remove button (ie an entry) to 
+the main journal page with title being linked to the entry it represents
+by the entryId*/
+
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import './JournalEntry.css'
 import moment from 'moment'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
-//import TokenService from '../../services/token-service'
 
 class JournalEntry extends Component {
     static contextType = ApiContext
@@ -13,8 +16,6 @@ class JournalEntry extends Component {
         e.preventDefault()
         const entryid = e.target.id
         console.log(entryid)
-
-        //this.props.history.push(`/`)
 
         fetch(`${config.API_ENDPOINT}/entry/${entryid}`, {
             method: 'DELETE',

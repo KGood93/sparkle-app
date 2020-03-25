@@ -2,9 +2,7 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
-//import {format} from 'date-fns'
 import './Entry.css'
-//import { allEntries } from '../../STORE'
 import Quote from '../Quote/Quote'
 
 class Entry extends React.Component {

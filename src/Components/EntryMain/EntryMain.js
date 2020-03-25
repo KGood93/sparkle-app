@@ -1,10 +1,10 @@
+//
+
 import React, {Component} from 'react'
 import './EntryMain.css';
 import Entry from '../Entry/Entry'
 import ApiContext from '../../ApiContext'
 import {findEntry} from '../../entry-helpers'
-
-//similar to notePageMain
 
 class EntryMain extends Component {
   static contextType = ApiContext

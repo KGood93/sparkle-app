@@ -15,11 +15,4 @@ function AddButton(props) {
   )
 }
 
-AddButton.propTypes = {
-  tag: PropTypes.func.isRequired,
-  to: PropTypes.string, 
-  type: PropTypes.string, 
-  className: PropTypes.string
-}
-
 export default AddButton

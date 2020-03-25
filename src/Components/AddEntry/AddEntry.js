@@ -6,8 +6,6 @@ import Quote from '../Quote/Quote'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
 import ValidationError from '../ValidationError/validationError'
-//import JournalApiService from '../../services/journal-api-service'
-//import TokenService from '../../services/token-service'
 
 class AddEntry extends React.Component {
     static contextType = ApiContext;
@@ -43,7 +41,8 @@ class AddEntry extends React.Component {
 
     getNewQuoteId() {
         const {entry=[]} = this.context
-        //get length of array //get object of last positions in array
+        //get length of array 
+        //get object of last positions in array
         if (entry.length !== 0) {
           const lastEntry = entry[entry.length - 1]
           const nextQuoteId = lastEntry.quoteid + 1

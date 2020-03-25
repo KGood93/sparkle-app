@@ -1,7 +1,7 @@
+//Header content with link to home page
+
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-//import { Hyph } from '../Utils/Utils'
-//import TokenService from '../../services/token-service'
 import './Header.css'
 
 export default class Header extends Component {

@@ -23,16 +23,10 @@ class AddEntry extends React.Component {
                 value: '',
                 touched: false
             },
-            quoteid: this.getNewQuoteId(),
+            quoteid: 1,
             redirect: false
        }
        
-    }
-
-    static defaultProps = {
-        history: {
-            push: () => {}
-        }
     }
 
     componentDidMount() {

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddEntry Component renders without crashing 1`] = `
+<section
+  className="AddEntry"
+>
+  <div
+    className="home"
+  >
+    <Link
+      to="/journal"
+    >
+      Home
+    </Link>
+  </div>
+  <EntryForm
+    className="EntryAddition"
+    onSubmit={[Function]}
+  >
+    <div
+      className="name"
+    >
+      <label
+        className="nameLabel"
+        htmlFor="EntryName"
+      >
+        Title:
+      </label>
+      <input
+        className="titleInput"
+        id="entryTitle"
+        name="entryTitle"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <Quote
+      quoteid={1}
+    />
+    <div
+      className="entryContent"
+    >
+      <textarea
+        className="eContent"
+        id="entryContent"
+        name="entryContent"
+        onChange={[Function]}
+      />
+    </div>
+    <div
+      className="addition_button"
+    >
+      <button
+        className="add"
+        disabled="Title is Required"
+        type="submit"
+      >
+        Add Entry
+      </button>
+    </div>
+  </EntryForm>
+</section>
+`;

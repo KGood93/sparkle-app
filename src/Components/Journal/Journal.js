@@ -6,10 +6,8 @@ import { Link } from 'react-router-dom'
 import AddButton from '../AddButton/AddButton.js'
 import './Journal.css';
 import JournalEntry from '../JournalEntry/JournalEntry'
-import ApiContext from '../../ApiContext'
 
 class Journal extends React.Component {
-  
 
     render() {
         return (

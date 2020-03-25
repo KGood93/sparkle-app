@@ -6,11 +6,6 @@ import './Entry.css'
 import Quote from '../Quote/Quote'
 
 class Entry extends React.Component {
-
-    handleClickDelete = e => {
-        e.preventDefault()
-    }
-    
     render() {
         //console.log(this.props.title) 
         return (
@@ -40,10 +35,6 @@ class Entry extends React.Component {
                         >
                     </textarea>
                 </div>
-                <button className='deleteEntry' type='button'>
-                    {' '}
-                    Remove
-                </button>
             </div>
         )
     }

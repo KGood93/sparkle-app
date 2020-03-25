@@ -39,12 +39,5 @@ exports[`Entry Component renders without crashing 1`] = `
       name="entryContent"
     />
   </div>
-  <button
-    className="deleteEntry"
-    type="button"
-  >
-     
-    Remove
-  </button>
 </div>
 `;

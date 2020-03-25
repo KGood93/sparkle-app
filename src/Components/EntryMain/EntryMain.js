@@ -13,6 +13,7 @@ class EntryMain extends Component {
     const {entry=[]} = this.context
     //console.log(entry)
     const {entryId} = this.props.match.params
+    console.log(this.props.match)
     const id = parseInt(entryId)
     const disEntry = findEntry(entry, id) || {title: '', content: '', quoteid: ''}
 

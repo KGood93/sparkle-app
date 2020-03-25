@@ -6,6 +6,7 @@ import Journal from './Journal';
 
 describe('Journal Component', () => {
     it("renders the complete journal", () => {
+        //mock context React testing mock context
         const wrapper = shallow(<Journal />);
         expect(toJson(wrapper)).toMatchSnapshot();
     })

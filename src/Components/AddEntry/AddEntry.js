@@ -29,6 +29,12 @@ class AddEntry extends React.Component {
        
     }
 
+    static defaultProps = {	
+        history: {	
+            push: () => {}	
+        }	
+    }
+
     componentDidMount() {
         this.getNewQuoteId()
     }

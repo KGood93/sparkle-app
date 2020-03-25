@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EntryMain Component renders without crashing 1`] = `
+<div
+  className="EntryPageMain"
+>
+  <Entry
+    content=""
+    quoteid=""
+    title=""
+  />
+</div>
+`;

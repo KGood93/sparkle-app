@@ -6,10 +6,10 @@ import EntryMain from './EntryMain';
 describe('EntryMain Component', () => {
     it(`renders without crashing`, () => {
         const test = {
-            path: "/launch/:meet_id",
-            url: "/launch/1",
+            path: "/entry/:entryId",
+            url: "/entry/32",
             isExact: true,
-            params: {meet_id: "1"}
+            params: {entryId: "32"}
         };
         const wrapper = shallow(<EntryMain match={test}/>);
         expect(toJson(wrapper)).toMatchSnapshot();

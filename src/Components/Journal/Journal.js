@@ -24,10 +24,10 @@ class Journal extends React.Component {
         return (
           <div className="main">
             <div className="discription">
-              <p className="descripText">Sparkle is a motivational journaling app to help inspire
-                you to lead your best life. Add a new entry or look 
-                back on previous entries to help spark your dreams and 
-                creativity. 
+              <p className="descripText">Sparkle is a motivational journaling app 
+                to help inspire you to shine. Add a new entry and spend some time 
+                reflecting on a motivational quote, or look back on previous entries
+                to help spark your dreams and creativity.  
               </p>
             </div>
             <div className="entryButton">

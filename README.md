@@ -17,7 +17,7 @@ npm start
 ```
 
 ## Testing
-To run back-end tests run ```npm test``` in terminal.
+To run front-end tests run ```npm test``` in terminal.
 
 ## Schema
 

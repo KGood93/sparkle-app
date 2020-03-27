@@ -8,7 +8,9 @@ body {
 }
 
 .mainBody {
-    margin-bottom: 40px;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 40px;
 }
 
 .mainHeader {
@@ -19,6 +21,13 @@ body {
     border-bottom: solid 7px rgb(6,106,117);
 }
 
+.mainFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;;
+}
+
 .home {
     display: block;
     margin: auto;
@@ -26,6 +35,8 @@ body {
     font-family: 'Playfair Display', serif;
     color: rgb(6,106,117);
 }
+
+
 
 .home a:hover {
     font-size: 25px;

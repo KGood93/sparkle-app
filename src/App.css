@@ -6,6 +6,7 @@ body {
     background-color: rgb(241,221,210);
     background-image: url("12.jpg");
     position: relative;
+    padding-bottom: 40px;
 }
 
 .mainBody {

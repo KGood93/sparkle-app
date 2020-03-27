@@ -5,6 +5,7 @@ body {
     margin: 0px;
     background-color: rgb(241,221,210);
     background-image: url("12.jpg");
+    position: relative;
 }
 
 .mainBody {

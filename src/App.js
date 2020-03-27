@@ -162,9 +162,9 @@ class App extends Component {
           <header className="mainHeader">
             <Header />
           </header>
-          <body className="mainBody">
+          <div className="mainBody">
             <nav className="AppNav">{this.renderNavRoutes()}</nav>
-          </body>
+          </div>
           <footer className="mainFooter">
             <Footer />
           </footer>
